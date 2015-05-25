@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,minimal-ui">
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<<<<<<< HEAD
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/icons.min.css" />
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/af.ui.base.css" />
     <script type="text/javascript" charset="utf-8" src="__PUBLIC__/jquery-2.1.3.min.js"></script>
@@ -15,6 +16,17 @@
         $(document).ready(function(){$("header#menuHeader").click(function(){$.afui.drawer.hide('#leftMenu');});});<?php if(isset($output)){echo $output;}?>
         function p(a){$.afui.showMask(w);$.getJSON('<?php echo U('Read/passage');?>/'+a,function(b){if(b){$('#passage').html('<p>本文连接:http://<?php echo $_SERVER['HTTP_HOST'],__APP__;?>/Index/p/'+a+'</p>'+b.content);$('#passage').attr('title',b.title);$.afui.loadContent('#passage',false,true,'slider');}else{$.afui.toast({message:'新闻不存在',position:'tc',type:'error'});}$.afui.hideMask();});}
         function t(a,b,c,e){$.afui.showMask(w);$.getJSON('<?php echo U('Read/title');?>/'+a+'/'+b+'/'+c,function(d){if(d.c){var s='';$.each(d.c,function(i,v){s+='<h2>'+i+'</h2>'+'<ul class="list">';$.each(v,function(j,w){s+='<li><a href="javascript:p('+w.id+')"><strong>'+ w.t+'</strong>&nbsp;['+w.d+']</a></li>';});s+='</ul>';});if(e){$('#main_page').append(s);}else{$('#main_page').html(s);$('#list').attr('title',d.t);}x=a;y=b;z=c;$.afui.loadContent('#list',false,true,'slider');}else{$.afui.toast({message:'读取新闻列表失败！！！',position:'tc',type:'error'});}$.afui.hideMask();});}
+=======
+    <link rel="stylesheet" type="text/css" href="Public/icons.min.css" />
+    <link rel="stylesheet" type="text/css" href="Public/af.ui.base.css" />
+    <script type="text/javascript" charset="utf-8" src="Public/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="Public/appframework.ui.min.js"></script>
+    <script type="text/javascript">
+        var x,y,z;var w='等一下哈=_=';
+        $(document).ready(function(){$("header#menuHeader").click(function(){$.afui.drawer.hide('#leftMenu');});});<?php if(isset($output)){echo $output;}?>
+        function p(a){$.afui.showMask(w);$.getJSON('<?php echo __APP__;?>/Read/passage/'+a,function(b){if(b){$('#passage').html('<p>本文连接:http://<?php echo $_SERVER['HTTP_HOST'],__APP__;?>/Index/p/'+a+'</p>'+b.content);$('#passage').attr('title',b.title);$.afui.loadContent('#passage',false,true,'slider');}else{$.afui.toast({message:'新闻不存在',position:'tc',type:'error'});}$.afui.hideMask();});}
+        function t(a,b,c,e){$.afui.showMask(w);$.getJSON('<?php echo __APP__;?>/Read/title/'+a+'/'+b+'/'+c,function(d){if(d.c){var s='';$.each(d.c,function(i,v){s+='<h2>'+i+'</h2>'+'<ul class="list">';$.each(v,function(j,w){s+='<li><a href="javascript:p('+w.id+')"><strong>'+ w.t+'</strong>&nbsp;['+w.d+']</a></li>';});s+='</ul>';});if(e){$('#main_page').append(s);}else{$('#main_page').html(s);$('#list').attr('title',d.t);}x=a;y=b;z=c;$.afui.loadContent('#list',false,true,'slider');}else{$.afui.toast({message:'读取新闻列表失败！！！',position:'tc',type:'error'});}$.afui.hideMask();});}
+>>>>>>> origin/master
         function n(){t(x,y,(++z),true);}
     </script>
 </head>

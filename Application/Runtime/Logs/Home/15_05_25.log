@@ -18,6 +18,7 @@ INFO: [ app_end ] --START--
 INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001867s ]
 INFO: [ app_end ] --END-- [ RunTime:0.002143s ]
 
+<<<<<<< HEAD
 [ 2015-05-25T21:54:46+08:00 ] ::1 /GdutNews/
 INFO: [ app_init ] --START--
 INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000058s ]
@@ -794,3 +795,5 @@ INFO: [ app_end ] --START--
 INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000858s ]
 INFO: [ app_end ] --END-- [ RunTime:0.001154s ]
 
+=======
+>>>>>>> origin/master

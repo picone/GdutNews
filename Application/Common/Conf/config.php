@@ -1,7 +1,12 @@
 <?php
 return array (
+<<<<<<< HEAD
 		'DB_TYPE' => 'sqlsrv',
 		'DB_DSN' => 'sqlsrv:Server=192.168.183.128;database=NewsPublishSystem',
+=======
+		'DB_TYPE' => 'pdo',
+		'DB_DSN' => 'sqlsrv:Server=192.168.186.128;database=NewsPublishSystem',
+>>>>>>> origin/master
 		'DB_USER' => 'gdut',
 		'DB_PWD' => '123',
 		'DB_PREFIX' => '',
