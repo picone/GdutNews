@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <link rel="stylesheet" type="text/css" href="/GdutNews/Public/icons.min.css" />
     <link rel="stylesheet" type="text/css" href="/GdutNews/Public/af.ui.base.css" />
-    <script type="text/javascript" charset="utf-8" src="/GdutNews/Public/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/GdutNews/Public/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="/GdutNews/Public/appframework.ui.min.js"></script>
 </head>
 <body>
