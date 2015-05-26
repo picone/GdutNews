@@ -765,3 +765,717 @@ INFO: [ app_end ] --START--
 INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000942s ]
 INFO: [ app_end ] --END-- [ RunTime:0.001262s ]
 
+[ 2015-05-26T21:12:33+08:00 ] ::1 /GdutNews/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000063s ]
+INFO: [ app_init ] --END-- [ RunTime:0.010077s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.016017s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.016379s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\LoginBehavior [ RunTime:0.020810s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.021175s ]
+SQL: SELECT TOP 5 [ArticleID],[Title] FROM [Articles] WHERE CategoryID=4 AND PublishDate>2015-05-26 ORDER BY [PublishDate] DESC [ RunTime:0.0021s ]
+SQL: SELECT TOP 5 [ArticleID],[Title] FROM [Articles] WHERE CategoryID=5 AND PublishDate>2015-05-26 ORDER BY [PublishDate] DESC [ RunTime:0.0017s ]
+SQL: SELECT TOP 5 [ArticleID],[Title] FROM [Articles] WHERE CategoryID=6 AND PublishDate>2015-05-26 ORDER BY [PublishDate] DESC [ RunTime:0.0012s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000211s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000565s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.281699s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.281999s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.026512s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.026790s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.006755s ]
+INFO: [ app_end ] --END-- [ RunTime:0.007070s ]
+
+[ 2015-05-26T21:23:26+08:00 ] ::1 /GdutNews/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000067s ]
+INFO: [ app_init ] --END-- [ RunTime:0.010978s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.015499s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.015854s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\LoginBehavior [ RunTime:0.014612s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.014996s ]
+SQL: SELECT TOP 5 [ArticleID],[Title] FROM [Articles] WHERE CategoryID=4 AND PublishDate>2015-05-26 ORDER BY [PublishDate] DESC [ RunTime:0.0015s ]
+SQL: SELECT TOP 5 [ArticleID],[Title] FROM [Articles] WHERE CategoryID=5 AND PublishDate>2015-05-26 ORDER BY [PublishDate] DESC [ RunTime:0.0014s ]
+SQL: SELECT TOP 5 [ArticleID],[Title] FROM [Articles] WHERE CategoryID=6 AND PublishDate>2015-05-26 ORDER BY [PublishDate] DESC [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000285s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000690s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.111736s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.112037s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.021803s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.022081s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.006542s ]
+INFO: [ app_end ] --END-- [ RunTime:0.006823s ]
+
+[ 2015-05-26T21:31:23+08:00 ] ::1 /GdutNews/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000058s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000955s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001164s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001566s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\LoginBehavior [ RunTime:0.004596s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.005020s ]
+SQL: SELECT TOP 5 [ArticleID],[Title] FROM [Articles] WHERE CategoryID=4 AND PublishDate>2015-05-26 ORDER BY [PublishDate] DESC [ RunTime:0.0017s ]
+SQL: SELECT TOP 5 [ArticleID],[Title] FROM [Articles] WHERE CategoryID=5 AND PublishDate>2015-05-26 ORDER BY [PublishDate] DESC [ RunTime:0.0012s ]
+SQL: SELECT TOP 5 [ArticleID],[Title] FROM [Articles] WHERE CategoryID=6 AND PublishDate>2015-05-26 ORDER BY [PublishDate] DESC [ RunTime:0.0009s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000249s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000633s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.021903s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.022330s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000823s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001073s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001325s ]
+
+[ 2015-05-26T21:39:15+08:00 ] ::1 /GdutNews/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000083s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001117s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001487s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001943s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\LoginBehavior [ RunTime:0.005186s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.005626s ]
+SQL: SELECT TOP 5 [ArticleID],[Title] FROM [Articles] WHERE CategoryID=4 AND PublishDate>2015-05-26 ORDER BY [PublishDate] DESC [ RunTime:0.0016s ]
+SQL: SELECT TOP 5 [ArticleID],[Title] FROM [Articles] WHERE CategoryID=5 AND PublishDate>2015-05-26 ORDER BY [PublishDate] DESC [ RunTime:0.0016s ]
+SQL: SELECT TOP 5 [ArticleID],[Title] FROM [Articles] WHERE CategoryID=6 AND PublishDate>2015-05-26 ORDER BY [PublishDate] DESC [ RunTime:0.0013s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000248s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000672s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.022874s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.023176s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000823s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001147s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001534s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001863s ]
+
+[ 2015-05-26T21:42:13+08:00 ] ::1 /GdutNews/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000056s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000887s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001079s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001434s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\LoginBehavior [ RunTime:0.004563s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.004976s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000250s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000606s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.085721s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.086066s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000537s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000782s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000995s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001306s ]
+
+[ 2015-05-26T21:45:27+08:00 ] ::1 /GdutNews/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000081s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000999s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001091s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001418s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\LoginBehavior [ RunTime:0.004565s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.004894s ]
+SQL: SELECT TOP 5 [ArticleID],[Title] FROM [Articles] WHERE CategoryID=4 AND PublishDate>2015-05-26 ORDER BY [PublishDate] DESC [ RunTime:0.0012s ]
+SQL: SELECT TOP 5 [ArticleID],[Title] FROM [Articles] WHERE CategoryID=5 AND PublishDate>2015-05-26 ORDER BY [PublishDate] DESC [ RunTime:0.0015s ]
+SQL: SELECT TOP 5 [ArticleID],[Title] FROM [Articles] WHERE CategoryID=6 AND PublishDate>2015-05-26 ORDER BY [PublishDate] DESC [ RunTime:0.0011s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000177s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000534s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020050s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020347s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000699s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000944s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001082s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001411s ]
+
+[ 2015-05-26T21:45:35+08:00 ] ::1 /GdutNews/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000059s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001028s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001221s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001562s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\LoginBehavior [ RunTime:0.005183s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.005515s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000230s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000605s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015149s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015536s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000653s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001025s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001109s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001491s ]
+
+[ 2015-05-26T21:46:34+08:00 ] ::1 /GdutNews/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000057s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001019s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001066s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001403s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\LoginBehavior [ RunTime:0.004668s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.004961s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000223s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000584s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020406s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020709s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000536s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000833s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000974s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001303s ]
+
+[ 2015-05-26T21:47:03+08:00 ] ::1 /GdutNews/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000083s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000935s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001084s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001415s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\LoginBehavior [ RunTime:0.004676s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.004951s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000181s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000524s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013199s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013499s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000799s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001522s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000894s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001213s ]
+
+[ 2015-05-26T21:47:13+08:00 ] ::1 /GdutNews/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000058s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001064s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000878s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001275s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\LoginBehavior [ RunTime:0.004233s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.004563s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000202s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000491s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.080409s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.080779s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000448s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000767s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001016s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001281s ]
+
+[ 2015-05-26T21:53:15+08:00 ] ::1 /GdutNews/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000056s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000903s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001092s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001438s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\LoginBehavior [ RunTime:0.004585s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.004859s ]
+SQL: SELECT TOP 5 [ArticleID],[Title] FROM [Articles] WHERE CategoryID=4 AND PublishDate>2015-05-26 ORDER BY [PublishDate] DESC [ RunTime:0.0015s ]
+SQL: SELECT TOP 5 [ArticleID],[Title] FROM [Articles] WHERE CategoryID=5 AND PublishDate>2015-05-26 ORDER BY [PublishDate] DESC [ RunTime:0.0012s ]
+SQL: SELECT TOP 5 [ArticleID],[Title] FROM [Articles] WHERE CategoryID=6 AND PublishDate>2015-05-26 ORDER BY [PublishDate] DESC [ RunTime:0.0012s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000253s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000601s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014038s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014350s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000732s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001052s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001052s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001412s ]
+
+[ 2015-05-26T21:55:58+08:00 ] ::1 /GdutNews/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000059s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001055s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001224s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001573s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\LoginBehavior [ RunTime:0.004786s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.005064s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000278s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000621s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020682s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.021029s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000749s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000993s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001307s ]
+
+[ 2015-05-26T21:55:59+08:00 ] ::1 /GdutNews/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000084s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000925s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001204s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001524s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\LoginBehavior [ RunTime:0.004622s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.004957s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000234s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000589s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014482s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014788s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000594s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000841s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001522s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001804s ]
+
+[ 2015-05-26T21:58:26+08:00 ] ::1 /GdutNews/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000058s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000914s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000991s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001365s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\LoginBehavior [ RunTime:0.004042s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.004439s ]
+SQL: SELECT TOP 5 [ArticleID],[Title] FROM [Articles] WHERE CategoryID=4 AND PublishDate>2015-05-26 ORDER BY [PublishDate] DESC [ RunTime:0.0012s ]
+SQL: SELECT TOP 5 [ArticleID],[Title] FROM [Articles] WHERE CategoryID=5 AND PublishDate>2015-05-26 ORDER BY [PublishDate] DESC [ RunTime:0.0011s ]
+SQL: SELECT TOP 5 [ArticleID],[Title] FROM [Articles] WHERE CategoryID=6 AND PublishDate>2015-05-26 ORDER BY [PublishDate] DESC [ RunTime:0.0016s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000236s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000625s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.019941s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020293s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000653s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000896s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001049s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001317s ]
+
+[ 2015-05-26T21:58:43+08:00 ] ::1 /GdutNews/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000070s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001078s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001134s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001472s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\LoginBehavior [ RunTime:0.004589s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.004859s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000195s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000553s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020445s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020755s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000694s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001011s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001054s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001370s ]
+
+[ 2015-05-26T21:58:45+08:00 ] ::1 /GdutNews/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000057s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000922s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001223s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001567s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\LoginBehavior [ RunTime:0.004660s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.005008s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000200s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000526s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014395s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014692s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000619s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000863s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000855s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001102s ]
+
+[ 2015-05-26T21:58:45+08:00 ] ::1 /GdutNews/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000058s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000851s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000859s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001245s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\LoginBehavior [ RunTime:0.004261s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.004591s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000277s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000615s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013543s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013896s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000449s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000764s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001006s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001296s ]
+
+[ 2015-05-26T21:59:51+08:00 ] ::1 /GdutNews/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000063s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001009s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001243s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001592s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\LoginBehavior [ RunTime:0.005192s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.005682s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000272s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000618s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020491s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020896s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000492s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000744s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000905s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001175s ]
+
+[ 2015-05-26T22:00:07+08:00 ] ::1 /GdutNews/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000080s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000974s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000848s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001174s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\LoginBehavior [ RunTime:0.004085s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.004488s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000278s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000622s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.019163s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019520s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000437s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000694s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000702s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001009s ]
+
+[ 2015-05-26T22:00:07+08:00 ] ::1 /GdutNews/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000058s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000770s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001073s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001425s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\LoginBehavior [ RunTime:0.004602s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.004929s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000193s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000534s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013074s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013372s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000420s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000669s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000666s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000912s ]
+
+[ 2015-05-26T22:01:27+08:00 ] ::1 /GdutNews/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000057s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000916s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000871s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001202s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\LoginBehavior [ RunTime:0.004608s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.004919s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000197s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000562s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013973s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014314s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000797s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001123s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000970s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001299s ]
+
+[ 2015-05-26T22:01:29+08:00 ] ::1 /GdutNews/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000058s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000881s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001054s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001413s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\LoginBehavior [ RunTime:0.004492s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.004835s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000235s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000680s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014596s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014896s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000633s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000950s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001025s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001349s ]
+
+[ 2015-05-26T22:02:18+08:00 ] ::1 /GdutNews/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000058s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000928s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000897s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001185s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\LoginBehavior [ RunTime:0.004337s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.004741s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000187s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000542s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.019998s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020357s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000577s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000820s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000701s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000949s ]
+
+[ 2015-05-26T22:02:45+08:00 ] ::1 /GdutNews/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000057s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000899s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000863s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001183s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\LoginBehavior [ RunTime:0.003952s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.004310s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000209s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000561s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020058s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020407s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000406s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000648s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000866s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001175s ]
+
+[ 2015-05-26T22:03:03+08:00 ] ::1 /GdutNews/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000084s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000908s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001042s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001369s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\LoginBehavior [ RunTime:0.004631s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.004991s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000228s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000583s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014256s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014558s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000544s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000792s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000857s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001172s ]
+
+[ 2015-05-26T22:11:10+08:00 ] ::1 /GdutNews/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000057s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000940s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001177s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001593s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\LoginBehavior [ RunTime:0.004585s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.004882s ]
+SQL: SELECT TOP 5 [ArticleID],[Title] FROM [Articles] WHERE CategoryID=4 AND PublishDate>2015-05-26 ORDER BY [PublishDate] DESC [ RunTime:0.0016s ]
+SQL: SELECT TOP 5 [ArticleID],[Title] FROM [Articles] WHERE CategoryID=5 AND PublishDate>2015-05-26 ORDER BY [PublishDate] DESC [ RunTime:0.0013s ]
+SQL: SELECT TOP 5 [ArticleID],[Title] FROM [Articles] WHERE CategoryID=6 AND PublishDate>2015-05-26 ORDER BY [PublishDate] DESC [ RunTime:0.0013s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000236s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000596s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020770s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.021133s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000767s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001081s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000865s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001192s ]
+
+[ 2015-05-26T22:11:30+08:00 ] ::1 /GdutNews/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000058s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000953s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001158s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001482s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\LoginBehavior [ RunTime:0.004464s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.004763s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000245s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000582s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020494s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020795s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000578s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000829s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001310s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001583s ]
+
+[ 2015-05-26T22:13:02+08:00 ] ::1 /GdutNews/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000058s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000943s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001023s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001354s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\LoginBehavior [ RunTime:0.004669s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.005047s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000252s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000594s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.019497s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019823s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000506s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000749s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000890s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001159s ]
+
+[ 2015-05-26T22:13:20+08:00 ] ::1 /GdutNews/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000081s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000935s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001037s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001325s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\LoginBehavior [ RunTime:0.004679s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.005081s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000260s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000592s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020723s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.021016s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000687s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000937s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001306s ]
+
+[ 2015-05-26T22:13:52+08:00 ] ::1 /GdutNews/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000086s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000968s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001116s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001477s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\LoginBehavior [ RunTime:0.004577s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.004979s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000252s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000603s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014578s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014903s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000617s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000926s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001078s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001396s ]
+

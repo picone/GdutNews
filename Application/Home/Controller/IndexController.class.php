@@ -13,6 +13,6 @@ class IndexController extends \Think\Controller {
 		$this->assign ( 'category', D ( 'Categories' )->getCategory () );
 	}
 	public function index() {
-		$this->display ( 'index' );
+		$this->display ( 'test' );
 	}
 }
