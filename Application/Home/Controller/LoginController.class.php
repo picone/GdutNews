@@ -14,7 +14,7 @@ class LoginController extends Controller {
 				cookie ( 'auth', authcode ( implode ( '\t', array (
 						I ( 'post.un' ),
 						I ( 'post.passwd' ) 
-				) ), 'ENCODE' ), I ( 'post.remember', '0' ) == 1 ? 0 : 7776000 );
+				) ), 'ENCODE' ), I ( 'post.remember','0') == 0 ? 0 : 7776000 );
 				redirect ( U ( 'Index/index' ) );
 			} else {
 				$this->assign ( 'output', '账号或密码错误!' );

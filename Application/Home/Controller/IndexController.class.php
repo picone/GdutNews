@@ -1,9 +1,8 @@
 <?php
-
 namespace Home\Controller;
 
 class IndexController extends \Think\Controller {
-	protected function _initialize() {
+	public function index() {
 		// 当日新闻加载
 		$today = date ( 'Y-m-d', NOW_TIME );
 		$this->assign ( 'notice', D ( 'Articles' )->getLatest ( 4, $today ) );
@@ -11,8 +10,6 @@ class IndexController extends \Think\Controller {
 		$this->assign ( 'note', D ( 'Articles' )->getLatest ( 6, $today ) );
 		// 导航栏分类加载
 		$this->assign ( 'category', D ( 'Categories' )->getCategory () );
-	}
-	public function index() {
 		$this->display ( 'index' );
 	}
 }
