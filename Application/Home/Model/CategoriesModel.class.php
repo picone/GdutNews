@@ -14,7 +14,7 @@ class CategoriesModel extends Model {
 	public function getAll() {
 		return $this->query ( 'SELECT [CategoryID],[CategoryName] FROM [Categories] ORDER BY CategorySequence' );
 	}
-	public function getCategory() {
+	public function getCategory() { // 获取导航栏
 		$category = S ( 'category' );
 		if (! $category) {
 			$data = $this->getAll ();

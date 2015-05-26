@@ -30,7 +30,7 @@ class ArticlesModel extends Model {
 			'oldSysID',
 			'CategoryID2' 
 	);
-	public function getPassage($id) {
+	public function getPassage($id) { // 新闻详情
 		$data = S ( 'passage' . $id );
 		if (! $data) {
 			$data = $this->query ( 'SELECT TOP 1 [Title],[Content] FROM [Articles] WHERE ArticleID=%d', ( int ) $id );
@@ -43,7 +43,7 @@ class ArticlesModel extends Model {
 		}
 		return $data;
 	}
-	public function getLatest($id, $time) {
+	public function getLatest($id, $time) { // 获取最新5条新闻
 		$data = S ( 'index' . $id . $time );
 		if (! $data) {
 			$data = $this->query ( 'SELECT TOP 5 [ArticleID],[Title] FROM [Articles] WHERE CategoryID=%d AND PublishDate>%s ORDER BY [PublishDate] DESC', ( int ) $id, $time );
@@ -51,7 +51,7 @@ class ArticlesModel extends Model {
 		}
 		return $data;
 	}
-	public function getTitle($category, $category2, $page) {
+	public function getTitle($category, $category2, $page) { // 获取分类新闻标题
 		$data = S ( 'title' . $category . '_' . $category2 . '_' . $page );
 		if (! $data) {
 			if ($category2 == 0)
@@ -70,7 +70,7 @@ class ArticlesModel extends Model {
 		}
 		return $data;
 	}
-	public function search($keyword) {
+	public function search($keyword) { // 搜索，未调用
 		$data = S ( 'search_' . $keyword );
 		if (! $data) {
 			$data = $this->query ( 'SELECT [ArticleID],[Title],CONVERT(varchar(10),PublishDate,111) AS PublishDate,DATENAME(WEEKDAY,PublishDate) AS WeekDay,[DepartmentName] FROM [Articles] LEFT JOIN [Department] ON Articles.DepartmentID = Department.DepartmentID WHERE Title LIKE \'%%s%\' OR KeyWord LIKE \'%%s%\' ORDER BY [PublishDate] DESC', $keyword, $keyword );
