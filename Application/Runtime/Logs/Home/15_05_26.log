@@ -670,3 +670,52 @@ INFO: [ app_end ] --START--
 INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000906s ]
 INFO: [ app_end ] --END-- [ RunTime:0.001236s ]
 
+[ 2015-05-26T19:53:38+08:00 ] ::1 /GdutNews/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000067s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001789s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.013199s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.013523s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\LoginBehavior [ RunTime:0.013653s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.013975s ]
+SQL: SELECT TOP 5 [ArticleID],[Title] FROM [Articles] WHERE CategoryID=4 AND PublishDate>2015-05-26 ORDER BY [PublishDate] DESC [ RunTime:0.0021s ]
+SQL: SELECT TOP 5 [ArticleID],[Title] FROM [Articles] WHERE CategoryID=5 AND PublishDate>2015-05-26 ORDER BY [PublishDate] DESC [ RunTime:0.0014s ]
+SQL: SELECT TOP 5 [ArticleID],[Title] FROM [Articles] WHERE CategoryID=6 AND PublishDate>2015-05-26 ORDER BY [PublishDate] DESC [ RunTime:0.0012s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000325s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000651s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.074820s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.075124s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.014666s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.014943s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.017871s ]
+INFO: [ app_end ] --END-- [ RunTime:0.018145s ]
+
+[ 2015-05-26T19:53:48+08:00 ] ::1 /GdutNews/index.php/home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000087s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000891s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001318s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001639s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\LoginBehavior [ RunTime:0.001401s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001731s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000227s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000572s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.023716s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.024010s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000642s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000896s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001041s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001292s ]
+
