@@ -9,6 +9,6 @@ class IndexController extends \Think\Controller {
 		$this->assign ( 'note', D ( 'Articles' )->getLatest ( 6) );
 		// 导航栏分类加载
 		$this->assign ( 'category', D ( 'Categories' )->getCategory () );
-		$this->display ( 'index' );
+		$this->display ( 'test' );
 	}
 }

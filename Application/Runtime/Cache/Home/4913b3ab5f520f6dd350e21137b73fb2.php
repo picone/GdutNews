@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
@@ -10,14 +10,14 @@
 <title>广东工业大学新闻通知网</title>
 
 <!-- Bootstrap -->
-<link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet">
+<link href="/GdutNews/Public/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
-      <script src="__PUBLIC__/js/html5shiv.min.js"></script>
-      <script src="__PUBLIC__/js/html5shiv-printshiv.min.js"></script>
-      <script src="__PUBLIC__/js/respond.min.js"></script>
+      <script src="/GdutNews/Public/js/html5shiv.min.js"></script>
+      <script src="/GdutNews/Public/js/html5shiv-printshiv.min.js"></script>
+      <script src="/GdutNews/Public/js/respond.min.js"></script>
     <![endif]-->
 </head>
 <body>
@@ -62,8 +62,8 @@
 	</nav>
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="__PUBLIC__/js/jquery-2.1.4.min.js"></script>
+	<script src="/GdutNews/Public/js/jquery-2.1.4.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="__PUBLIC__/js/bootstrap.min.js"></script>
+	<script src="/GdutNews/Public/js/bootstrap.min.js"></script>
 </body>
 </html>
