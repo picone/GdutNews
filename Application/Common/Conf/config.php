@@ -1,7 +1,7 @@
 <?php
 return array (
 		'DB_TYPE' => 'sqlsrv',
-		'DB_DSN' => 'sqlsrv:Server=192.168.183.128;database=NewsPublishSystem',
+		'DB_DSN' => 'sqlsrv:Server=192.168.183.131;database=NewsPublishSystem',
 		'DB_USER' => 'gdut',
 		'DB_PWD' => '123',
 		'DB_PREFIX' => '',
