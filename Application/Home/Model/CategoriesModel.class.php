@@ -24,7 +24,7 @@ class CategoriesModel extends Model {
 				$category [$v ['categoryid']] ['data'] [] = array (
 						'id' => 0,
 						'name' => '全部' . substr ( $v ['categoryname'], 6 ) 
-				);
+				); // 当目录名不是4个中文字符时会显示错误
 				if (isset ( $t [0] )) {
 					foreach ( $t as &$v2 ) {
 						$category [$v ['categoryid']] ['data'] [] = array (

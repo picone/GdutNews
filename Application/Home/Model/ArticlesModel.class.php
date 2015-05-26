@@ -15,19 +15,10 @@ class ArticlesModel extends Model {
 			'UpdateDate',
 			'CategoryID',
 			'DepartmentID',
-			'KeyWord',
-			'Abstract',
 			'Content',
 			'PublishDate',
-			'ExpireDate',
 			'Approved',
-			'CommentsEnabled',
-			'ReadingPower',
 			'ViewCount',
-			'Vote',
-			'TotalRating',
-			'ImageUrl',
-			'oldSysID',
 			'CategoryID2' 
 	);
 	public function getPassage($id) { // 新闻详情
