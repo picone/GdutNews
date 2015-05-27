@@ -6,7 +6,7 @@ use Think\Controller;
 
 class LoginController extends Controller {
 	public function index() {
-		$this->display ( 'test' );
+		$this->display ( 'index' );
 	}
 	public function login() {
 		if (IS_POST) {

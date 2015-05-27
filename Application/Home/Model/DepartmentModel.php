@@ -13,6 +13,6 @@ class DepartmentModel extends Model {
 			'DepartmentManagePassword' 
 	);
 	public function getAll() {
-		return $this->query ( 'SELECT [DepartmentID],[DepartmentName] FROM [Department] ORDER BY [DepartmentSequence]' );
+		return $this->query ( 'SELECT [DepartmentID],[DepartmentName] FROM [Department] ORDER BY DepartmentSequence' );
 	}
 }
