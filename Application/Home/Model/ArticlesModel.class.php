@@ -61,17 +61,35 @@ class ArticlesModel extends Model {
 		}
 		return $data;
 	}
-
-	public function search($keyword,$category,$department,$date_from,$date_to) { // 搜索，未调用
-		$data = S ( 'search_' . $keyword.'_'.$category.'_'.$department.'_'.$date_from.'_'.$date_to );
+	public function search($keyword, $searchtype = 1, $department, $category, $date_from, $date_to) { // 搜索，未调用
+		$data = S ( 'search_' . $keyword . '_' . $searchtype . '_' . $department . '_' . $category . '_' . $date_from . '_' . $date_to );
 		if (! $data) {
-			$sql='SELECT [ArticleID],[Title],CONVERT(varchar(10),PublishDate,111) AS PublishDate,DATENAME(WEEKDAY,PublishDate) AS WeekDay,[DepartmentName] FROM [Articles] LEFT JOIN [Department] ON Articles.DepartmentID = Department.DepartmentID WHERE Title LIKE '.$keyword;
-			if($category!=0)$sql.=' AND Articles.CategoryID='.(int)$category;
-			if($department!=0)$sql.=' AND Articles.DepartmentID='.(int)$department;
-			if($date_from!=''&&$date_to!='')$sql.=sprintf(' AND [PublishDate]>\'%s\' AND [PublishDate]<\'%s\'',$date_from,$date_to);
-			$sql.=' ORDER BY [PublishDate] DESC';
-			$data = $this->query ($sql , $keyword, $keyword );
-			S ( 'search_' . $keyword.'_'.$category.'_'.$department.'_'.$date_from.'_'.$date_to, $data, C ( 'CACHE_SEARCH' ) );
+			$sql = 'SELECT [ArticleID],[Title],CONVERT(varchar(10),PublishDate,111) AS PublishDate,DATENAME(WEEKDAY,PublishDate) AS WeekDay,[DepartmentName] FROM [Articles] LEFT JOIN [Department] ON Articles.DepartmentID = Department.DepartmentID';
+			switch (( int ) $searchtype) {
+				case 1 : // 标题搜索
+					$sql .= ' WHERE Title LIKE' . $keyword;
+					break;
+				case 2 : // 内容搜索
+					$sql .= ' WHERE Content LIKE' . $keyword;
+					break;
+				case 3 : // 全文搜索（标题和内容都匹配）
+					$sql .= ' WHERE Title LIKE' . $keyword;
+					$sql .= ' AND Content LIKE' . $keyword;
+				default : // 默认标题搜索
+					$sql .= ' WHERE Title LIKE' . $keyword;
+					break;
+			}
+			if ($department != 0)
+				$sql .= ' AND Articles.DepartmentID=' . ( int ) $department;
+			if ($category != 0)
+				$sql .= ' AND Articles.CategoryID=' . ( int ) $category;
+			if ($date_from != '')
+				$sql .= sprintf ( ' AND [PublishDate]>\'%s\'', $date_from );
+			if ($date_to != '')
+				$sql .= sprintf ( ' AND [PublishDate]<\'%s\'', $date_to );
+			$sql .= ' ORDER BY [PublishDate] DESC';
+			$data = $this->query ( $sql, $keyword, $keyword );
+			S ( 'search_' . $keyword . '_' . $searchtype . '_' . $department . '_' . $category . '_' . $date_from . '_' . $date_to, $data, C ( 'CACHE_SEARCH' ) );
 		}
 		return $data;
 	}
