@@ -14,5 +14,5 @@ return array (
 		'LOGIN_USERNAME' => 'gdutnews', // 登录用户名
 		'LOGIN_PASSWORD' => 'newsgdut', // 登录密码
 		'AUTH_KEY' => 'gdut!~@', // COOKIE密钥
-		'DEFAULT_FILTER' => 'htmlspecialchars,addslashes'
+		'DEFAULT_FILTER' => 'htmlspecialchars,addslashes' 
 );

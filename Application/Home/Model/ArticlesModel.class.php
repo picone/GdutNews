@@ -21,7 +21,6 @@ class ArticlesModel extends Model {
 			'ViewCount',
 			'CategoryID2' 
 	);
-
 	public function getPassage($id) { // 新闻详情
 		$data = S ( 'passage' . $id );
 		if (! $data) {
@@ -35,16 +34,14 @@ class ArticlesModel extends Model {
 		}
 		return $data;
 	}
-
 	public function getLatest($id) { // 获取最新5条新闻
-		$data = S ( 'index' . $id);
+		$data = S ( 'index' . $id );
 		if (! $data) {
-			$data = $this->query ( 'SELECT TOP 5 [ArticleID],[Title] FROM [Articles] WHERE CategoryID=%d ORDER BY [PublishDate] DESC', ( int ) $id);
+			$data = $this->query ( 'SELECT TOP 5 [ArticleID],[Title] FROM [Articles] WHERE CategoryID=%d ORDER BY [PublishDate] DESC', ( int ) $id );
 			S ( 'index' . $id, $data, C ( 'CACHE_INDEX' ) );
 		}
 		return $data;
 	}
-
 	public function getTitle($category, $category2, $page) { // 获取分类新闻标题
 		$data = S ( 'title' . $category . '_' . $category2 . '_' . $page );
 		if (! $data) {
