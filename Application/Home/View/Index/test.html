@@ -20,8 +20,8 @@
       <script src="__PUBLIC__/js/respond.min.js"></script>
     <![endif]-->
 </head>
-<body>
-	<nav class="navbar navbar-default navbar-fixed-top">
+<body style="padding-top: 50px;">
+	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed"
@@ -30,48 +30,67 @@
 					<span class="sr-only">导航栏</span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span> <span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">新闻通知网</a>
+				<a class="navbar-brand" href="<?php U('Index/index'); ?>">新闻通知网</a>
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">主页<span class="sr-only">(当前)</span></a></li>
+					<li class="active"><a href="#"><span
+							class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;主页<span
+							class="sr-only">(当前)</span></a></li>
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown" role="button" aria-expanded="false">校内通知
-							<span class="caret"></span>
-					</a>
+						data-toggle="dropdown" role="button" aria-expanded="false"><span
+							class="glyphicon glyphicon-th-list" aria-hidden="true"></span>&nbsp;校内通知
+							<span class="caret"></span> </a>
 						<ul class="dropdown-menu" role="menu">
-							<li><a href="#">全部通知</a></li>
-							<li><a href="#">会议通知</a></li>
-							<li><a href="#">事务通知</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-link"
+									aria-hidden="true"></span>&nbsp;全部通知</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-link"
+									aria-hidden="true"></span>&nbsp;会议通知</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-link"
+									aria-hidden="true"></span>&nbsp;事务通知</a></li>
 						</ul></li>
-					<li><a href="#">公示公告</a></li>
+					<li><a href="#"><span class="glyphicon glyphicon-link"
+							aria-hidden="true"></span>&nbsp;公示公告</a></li>
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown" role="button" aria-expanded="false">校内简讯
-							<span class="caret"></span>
-					</a>
+						data-toggle="dropdown" role="button" aria-expanded="false"><span
+							class="glyphicon glyphicon-th-list" aria-hidden="true"></span>&nbsp;校内简讯
+							<span class="caret"></span> </a>
 						<ul class="dropdown-menu" role="menu">
-							<li><a href="#">全部简讯</a></li>
-							<li><a href="#">部处简讯</a></li>
-							<li><a href="#">学院简讯</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-link"
+									aria-hidden="true"></span>&nbsp;全部简讯</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-link"
+									aria-hidden="true"></span>&nbsp;部处简讯</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-link"
+									aria-hidden="true"></span>&nbsp;学院简讯</a></li>
 						</ul></li>
-					<li><a href="#">招标公告</a></li>
+					<li><a href="#"><span class="glyphicon glyphicon-link"
+							aria-hidden="true"></span>&nbsp;招标公告</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#">用户登录</a></li>
-					<li><a href="#">内容检索</a></li>
-					<li><a href="http://news.gdut.edu.cn">传统网站</a></li>
+					<li><a href="<?php echo U('Login/index'); ?>"><span
+							class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;用户登录</a></li>
+					<li><a href="#"><span class="glyphicon glyphicon-search"
+							aria-hidden="true"></span>&nbsp;内容检索</a></li>
+					<li><a href="http://news.gdut.edu.cn"><span
+							class="glyphicon glyphicon-globe" aria-hidden="true"></span>&nbsp;传统网站</a></li>
 				</ul>
 			</div>
 			<!--/.nav-collapse -->
 		</div>
 	</nav>
-	<!--<div class="container">
-	<footer class="footer">
+	<div class="jumbotron">
+		<div class="container">
+			<h1>广东工业大学</h1>
+			<p>新闻通知网，欢迎您</p>
+		</div>
+	</div>
+	<div class="container">
+		<footer class="footer">
 			<div class="container col-xs-12">
 				<p align="center">©2015 广东工业大学 All Rights Reserved.</p>
 			</div>
-		</footer> 
-	</div>-->
+		</footer>
+	</div>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="__PUBLIC__/js/jquery-2.1.4.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
