@@ -37,8 +37,8 @@ class ArticlesModel extends Model {
 	public function getLatest($id, $count) { // 获取最新count条新闻
 		$data = S ( 'index' . $id . '_' . $count );
 		if (! $data) {
-			$data = $this->query ( 'SELECT TOP %d [ArticleID],[Title] FROM [Articles] WHERE CategoryID=%d ORDER BY [PublishDate] DESC', ( int ) $count, ( int ) $id );
-			S ( 'index' . $id . '_' . $count, $data, C ( 'CACHE_INDEX' ) );
+			$data = $this->query ( 'SELECT TOP %d [ArticleID],[Title],CONVERT(varchar(10),PublishDate,111) AS PublishDate,DATENAME(WEEKDAY,PublishDate) AS WeekDay,[DepartmentName] FROM [Articles] LEFT JOIN [Department] ON Articles.DepartmentID=Department.DepartmentID WHERE CategoryID=%d ORDER BY [PublishDate] DESC',(int)$count,( int ) $id );
+			S ( 'index' . $id.'_'.$count, $data, C ( 'CACHE_INDEX' ) );
 		}
 		return $data;
 	}
