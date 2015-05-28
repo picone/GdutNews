@@ -65,11 +65,16 @@ class ArticlesModel extends Model {
 		return $data;
 	}
 
-	public function search($keyword) { // 搜索，未调用
-		$data = S ( 'search_' . $keyword );
+	public function search($keyword,$category,$department,$date_from,$date_to) { // 搜索，未调用
+		$data = S ( 'search_' . $keyword.'_'.$category.'_'.$department.'_'.$date_from.'_'.$date_to );
 		if (! $data) {
-			$data = $this->query ( 'SELECT [ArticleID],[Title],CONVERT(varchar(10),PublishDate,111) AS PublishDate,DATENAME(WEEKDAY,PublishDate) AS WeekDay,[DepartmentName] FROM [Articles] LEFT JOIN [Department] ON Articles.DepartmentID = Department.DepartmentID WHERE Title LIKE \'%%s%\' OR KeyWord LIKE \'%%s%\' ORDER BY [PublishDate] DESC', $keyword, $keyword );
-			S ( 'search_' . $keyword, $data, C ( 'CACHE_SEARCH' ) );
+			$sql='SELECT [ArticleID],[Title],CONVERT(varchar(10),PublishDate,111) AS PublishDate,DATENAME(WEEKDAY,PublishDate) AS WeekDay,[DepartmentName] FROM [Articles] LEFT JOIN [Department] ON Articles.DepartmentID = Department.DepartmentID WHERE Title LIKE '.$keyword;
+			if($category!=0)$sql.=' AND Articles.CategoryID='.(int)$category;
+			if($department!=0)$sql.=' AND Articles.DepartmentID='.(int)$department;
+			if($date_from!=''&&$date_to!='')$sql.=sprintf(' AND [PublishDate]>\'%s\' AND [PublishDate]<\'%s\'',$date_from,$date_to);
+			$sql.=' ORDER BY [PublishDate] DESC';
+			$data = $this->query ($sql , $keyword, $keyword );
+			S ( 'search_' . $keyword.'_'.$category.'_'.$department.'_'.$date_from.'_'.$date_to, $data, C ( 'CACHE_SEARCH' ) );
 		}
 		return $data;
 	}

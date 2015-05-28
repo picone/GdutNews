@@ -12,4 +12,8 @@ class DepartmentModel extends Model {
 			'DepartmentSequence',
 			'DepartmentManagePassword' 
 	);
+
+	public function getAll(){
+		return $this->query ( 'SELECT [DepartmentID],[DepartmentName] FROM [Department]' );
+	}
 }
