@@ -34,11 +34,11 @@ class ArticlesModel extends Model {
 		}
 		return $data;
 	}
-	public function getLatest($id,$count) { // 获取最新5条新闻
-		$data = S ( 'index' . $id.'_'.$count );
+	public function getLatest($id, $count) { // 获取最新count条新闻
+		$data = S ( 'index' . $id . '_' . $count );
 		if (! $data) {
-			$data = $this->query ( 'SELECT TOP %d [ArticleID],[Title] FROM [Articles] WHERE CategoryID=%d ORDER BY [PublishDate] DESC',(int)$count,( int ) $id );
-			S ( 'index' . $id.'_'.$count, $data, C ( 'CACHE_INDEX' ) );
+			$data = $this->query ( 'SELECT TOP %d [ArticleID],[Title] FROM [Articles] WHERE CategoryID=%d ORDER BY [PublishDate] DESC', ( int ) $count, ( int ) $id );
+			S ( 'index' . $id . '_' . $count, $data, C ( 'CACHE_INDEX' ) );
 		}
 		return $data;
 	}
