@@ -10,8 +10,6 @@ class IndexController extends \Think\Controller {
 			array('name'=>'最新公告','data'=>D ( 'Articles' )->getLatest ( 5,5 )),
 			array('name'=>'最新简讯','data'=>D ( 'Articles' )->getLatest ( 6,4 ))
 		));
- 		// 导航栏分类加载
-// 		$this->assign ( 'category', D ( 'Categories' )->getCategory () );
 		$this->display ();
 	}
 }

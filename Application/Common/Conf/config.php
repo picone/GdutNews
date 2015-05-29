@@ -5,6 +5,7 @@ return array (
 		'DB_USER' => 'gdut',
 		'DB_PWD' => '123',
 		'DB_PREFIX' => '',
+		'MULTI_MODULE'=>false,
 		'URL_PARAMS_BIND_TYPE'=>1,
 		'CACHE_NAVIGATION' => 86400, // 导航栏缓存时间
 		'CACHE_INDEX' => 300, // 首页新闻缓存时间
