@@ -5,43 +5,20 @@
         <p>新闻通知网，欢迎您</p>
     </div>
 </div>
-<div class="container col-xs-12 col-sm-6">
-    <div class="page-header">
-        <h3>最新通知</h3>
+<foreach name="data" item="info">
+    <div class="container col-xs-12 col-sm-6">
+        <div class="page-header">
+            <h3>{$info.name}</h3>
+        </div>
+        <div class="list-group">
+            <foreach name="info.data" item="val" >
+                <a href="__APP__/Article/index/{$val.articlesid}" class="list-group-item">
+                    <h4 class="list-group-item-heading">{$val.title}</h4>
+                    <p class="list-group-item-text">[{$val.departmentname}&nbsp;{$val.publishdate}&nbsp;{$val.weekday}]</p>
+                </a>
+            </foreach>
+            <button type="button" class="btn btn-default btn-block list-group-item">更多...</button>
+        </div>
     </div>
-    <div class="list-group">
-        <foreach name="notice" item="val" >
-            <a href="#" class="list-group-item">
-                <h4 class="list-group-item-heading">{$val.title}</h4>
-            </a>
-        </foreach>
-        <button type="button" class="btn btn-default btn-block list-group-item">更多...</button>
-    </div>
-</div>
-<div class="container col-xs-12 col-sm-6">
-    <div class="page-header">
-        <h3>最新公告</h3>
-    </div>
-    <div class="list-group">
-        <foreach name="announce" item="val" >
-            <a href="#" class="list-group-item">
-                <h4 class="list-group-item-heading">{$val.title}</h4>
-            </a>
-        </foreach>
-        <button type="button" class="btn btn-default btn-block list-group-item">更多...</button>
-    </div>
-</div>
-<div class="container col-xs-12 col-sm-6">
-    <div class="page-header">
-        <h3>最新简讯</h3>
-    </div>
-    <div class="list-group">
-        <foreach name="note" item="val" >
-            <a href="#" class="list-group-item">
-                <h4 class="list-group-item-heading">{$val.title}</h4>
-            </a>
-        </foreach>
-        <button type="button" class="btn btn-default btn-block list-group-item">更多...</button>
-    </div>
-</div>
+</foreach>
 <include file="Public/footer"/>
