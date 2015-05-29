@@ -13,12 +13,12 @@
         </div>
         <div class="list-group">
             <foreach name="info.data" item="val" >
-                <a href="__APP__/Article/index/{$val.articlesid}" class="list-group-item">
+                <a href="__APP__/Article/index/{$val.articleid}" class="list-group-item" target="_blank">
                     <h4 class="list-group-item-heading">{$val.title}</h4>
                     <p class="list-group-item-text">[{$val.departmentname}&nbsp;{$val.publishdate}&nbsp;{$val.weekday}]</p>
                 </a>
             </foreach>
-            <button type="button" class="btn btn-default btn-block list-group-item">更多...</button>
+            <a href="#" class="list-group-item"><div style="text-align:center;">更多...</div></a>
         </div>
     </div>
 </foreach>
