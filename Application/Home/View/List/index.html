@@ -5,40 +5,39 @@
   <li><a href="__APP__">主页</a></li>
   <li class="active">校内通知</li>
 </ol>
-<h4>YYYY/MM/DD&nbsp;星期W</h4>
-<div class="list-group">
-  <a href="#" class="list-group-item">
-    <h4 class="list-group-item-heading">关于做好接听招生热线电话工作的通知</h4>
-    <p class="list-group-item-text"> [招生办公室]</p>
-  </a>
-  <a href="#" class="list-group-item">
-    <h4 class="list-group-item-heading">关于做好接听招生热线电话工作的通知</h4>
-    <p class="list-group-item-text"> [招生办公室]</p>
-  </a>
-  <a href="#" class="list-group-item">
-    <h4 class="list-group-item-heading">关于做好接听招生热线电话工作的通知</h4>
-    <p class="list-group-item-text"> [招生办公室]</p>
-  </a>
+<div id="content" data-spy="scroll">
+    <foreach name="data" item="info">
+        <h4>{$key}</h4>
+        <div class="list-group">
+            <foreach name="info" item="val">
+                <a href="__APP__/Article/index/{$val.id}" class="list-group-item" target="_blank">
+                    <h4 class="list-group-item-heading">{$val.t}</h4>
+                    <p class="list-group-item-text">&nbsp;[{$val.d}]</p>
+                </a>
+            </foreach>
+        </div>
+    </foreach>
 </div>
-<h4>YYYY/MM/DD&nbsp;星期W</h4>
-<div class="list-group">
-  <a href="#" class="list-group-item">
-    <h4 class="list-group-item-heading">关于做好接听招生热线电话工作的通知</h4>
-    <p class="list-group-item-text"> [招生办公室]</p>
-  </a>
-  <a href="#" class="list-group-item">
-    <h4 class="list-group-item-heading">关于做好接听招生热线电话工作的通知</h4>
-    <p class="list-group-item-text"> [招生办公室]</p>
-  </a>
-  <a href="#" class="list-group-item">
-    <h4 class="list-group-item-heading">关于做好接听招生热线电话工作的通知</h4>
-    <p class="list-group-item-text"> [招生办公室]</p>
-  </a>
+<div class="btn btn-default btn-block" onclick="next()">更多...</div>
 </div>
-<nav>
-  <ul class="pager">
-    <li class="previous"><a href="#">上一页</a></li>
-    <li class="next"><a href="#">下一页</a></li>
-  </ul>
-</nav></div>
+<div style="position:fixed;right:10%;bottom:10%;" class="icon-chevron-up icon-white" onclick="$(document).scrollTop(0);">返回顶部</div>
+<script>
+    var page=1,c1={$category},c2={$category2},str;
+    function next(){
+        $.getJSON('__APP__/List/page/'+c1+'/'+c2+'/'+(++page),function(a){
+            $.each(a,function(i,v1){
+                str='<h4>'+i+'</h4><div class="list-group">';
+                $.each(v1,function(j,v2){
+                    str+='<a href="__APP__/Article/index/'+v2.id+'" class="list-group-item" target="_blank"><h4 class="list-group-item-heading">'+v2.t+'</h4><p class="list-group-item-text">&nbsp;['+v2.d+']</p></a>';
+                });
+                $('#content').append(str,'</div>');
+            });
+        });
+    }
+    $(function(){
+        $(window).scroll(function(){
+            if($(document).scrollTop()>=$(document).height()-$(window).height())next();
+        });
+    });
+</script>
 <include file="Public/footer"/>
