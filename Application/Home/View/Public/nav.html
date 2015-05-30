@@ -1,83 +1,136 @@
-<body style="padding-top:50px;">
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">导航栏</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="__APP__">新闻通知网</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li <if condition="CONTROLLER_NAME=='Index'">class="active"</if>>
-                    <a href="__APP__">
-                        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;主页
-                    </a>
-                </li>
-                <li class="dropdown <if condition="CONTROLLER_NAME=='List'&&$category==4">active</if>">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>&nbsp;校内通知<span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li>
-                            <a href="__APP__/List/index/4">
-                                <span class="glyphicon glyphicon-link"aria-hidden="true"></span>&nbsp;全部通知
-                            </a>
-                        </li>
-                        <li>
-                            <a href="__APP__/List/index/4/1">
-                                <span class="glyphicon glyphicon-link" aria-hidden="true"></span>&nbsp;会议通知
-                            </a>
-                        </li>
-                        <li>
-                            <a href="__APP__/List/index/4/2">
-                                <span class="glyphicon glyphicon-link" aria-hidden="true"></span>&nbsp;事务通知
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li <if condition="CONTROLLER_NAME=='List'&&$category==5">class="active"</if>>
-                    <a href="__APP__/List/index/5"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>&nbsp;公示公告</a>
-                </li>
-                <li class="dropdown <if condition="CONTROLLER_NAME=='List'&&$category==6">active</if>">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>&nbsp;校内简讯
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li>
-                            <a href="__APP__/List/index/6">
-                                <span class="glyphicon glyphicon-link" aria-hidden="true"></span>&nbsp;全部简讯
-                            </a>
-                        </li>
-                        <li>
-                            <a href="__APP__/List/index/6/4">
-                                <span class="glyphicon glyphicon-link" aria-hidden="true"></span>&nbsp;部处简讯
-                            </a>
-                        </li>
-                        <li>
-                            <a href="__APP__/List/index/6/8">
-                                <span class="glyphicon glyphicon-link" aria-hidden="true"></span>&nbsp;学院简讯
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li <if condition="CONTROLLER_NAME=='List'&&$category==8">class="active"</if>><a href="__APP__/List/index/8"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>&nbsp;招标公告</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="__APP__/Login"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;用户登录</a>
-                </li>
-                <li>
-                    <a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;内容检索</a>
-                </li>
-                <li>
-                    <a href="http://news.gdut.edu.cn"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span>&nbsp;传统网站</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<body style="padding-top: 50px;">
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">导航栏</span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="__APP__">新闻通知网</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li<if condition="CONTROLLER_NAME=='Index'">class="active"</if>>
+						<a href="__APP__"> <span class="glyphicon glyphicon-home"
+							aria-hidden="true"></span>&nbsp;主页
+					</a></li>
+					<li class="dropdown <if condition=" CONTROLLER_NAME==
+						'List'&&$category==4">active</if>"> <a href="#"
+						class="dropdown-toggle" data-toggle="dropdown" role="button"
+						aria-expanded="false"> <span
+							class="glyphicon glyphicon-th-list" aria-hidden="true"></span>&nbsp;校内通知<span
+							class="caret"></span>
+					</a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="__APP__/List/index/4"> <span
+									class="glyphicon glyphicon-link" aria-hidden="true"></span>&nbsp;全部通知
+							</a></li>
+							<li><a href="__APP__/List/index/4/1"> <span
+									class="glyphicon glyphicon-link" aria-hidden="true"></span>&nbsp;会议通知
+							</a></li>
+							<li><a href="__APP__/List/index/4/2"> <span
+									class="glyphicon glyphicon-link" aria-hidden="true"></span>&nbsp;事务通知
+							</a></li>
+						</ul>
+					</li>
+					<li<if condition="CONTROLLER_NAME=='List'&&$category==5">class="active"</if>>
+						<a href="__APP__/List/index/5"><span
+							class="glyphicon glyphicon-link" aria-hidden="true"></span>&nbsp;公示公告</a>
+					</li>
+					<li class="dropdown <if condition=" CONTROLLER_NAME==
+						'List'&&$category==6">active</if>"> <a href="#"
+						class="dropdown-toggle" data-toggle="dropdown" role="button"
+						aria-expanded="false"> <span
+							class="glyphicon glyphicon-th-list" aria-hidden="true"></span>&nbsp;校内简讯
+							<span class="caret"></span>
+					</a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="__APP__/List/index/6"> <span
+									class="glyphicon glyphicon-link" aria-hidden="true"></span>&nbsp;全部简讯
+							</a></li>
+							<li><a href="__APP__/List/index/6/4"> <span
+									class="glyphicon glyphicon-link" aria-hidden="true"></span>&nbsp;部处简讯
+							</a></li>
+							<li><a href="__APP__/List/index/6/8"> <span
+									class="glyphicon glyphicon-link" aria-hidden="true"></span>&nbsp;学院简讯
+							</a></li>
+						</ul>
+					</li>
+					<li<if condition="CONTROLLER_NAME=='List'&&$category==8">class="active"</if>><a
+						href="__APP__/List/index/8"><span
+							class="glyphicon glyphicon-link" aria-hidden="true"></span>&nbsp;招标公告</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="__APP__/Login"><span
+							class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;用户登录</a>
+					</li>
+					<li><a data-toggle="modal" href="#mymodal"><span
+							class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;内容检索</a></li>
+					<li><a href="http://news.gdut.edu.cn"><span
+							class="glyphicon glyphicon-globe" aria-hidden="true"></span>&nbsp;传统网站</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="modal fade" id="mymodal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="ture">&times;</span><span class="sr-only">关闭</span>
+					</button>
+					<h4 class="modal-title">高级搜索</h4>
+				</div>
+				<div class="modal-body">
+					<form role="form">
+						<div class="form-group">
+							<label for="">关键字：</label> <input type="text"
+								class="form-control" id="" placeholder="请输入关键字">
+						</div>
+						<div class="form-group">
+							<label for="">搜索类型：</label>
+							<div class="form-group">
+								<select class="form-control">
+									<option>文章标题</option>
+									<option>文章内容</option>
+									<option>全文搜索</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="">文章所属部门：</label>
+							<div class="form-group">
+								<select class="form-control">
+									<option>所有部门</option>
+									<option>。。。</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="">文章所属分类：</label>
+							<div class="form-group">
+								<select class="form-control">
+									<option>所有分类</option>
+									<option>校内通知</option>
+									<option>公示公告</option>
+									<option>校内简讯</option>
+									<option>招标公告</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group form-inline">
+							<label for="">文章发布日期：</label> <input type="date"
+								class="form-control" id="" placeholder=""> <input
+								type="date" class="form-control" id="" placeholder="">
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary">搜索</button>
+				</div>
+			</div>
+		</div>
+	</div>
