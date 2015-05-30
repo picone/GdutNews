@@ -17,55 +17,55 @@
                         <span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;主页
                     </a>
                 </li>
-                <li class="dropdown <if condition="CONTROLLER_NAME=='Notice'">active</if>">
+                <li class="dropdown <if condition="CONTROLLER_NAME=='List'&&$category==4">active</if>">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                         <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>&nbsp;校内通知<span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu">
                         <li>
-                            <a href="#">
+                            <a href="__APP__/List/index/4">
                                 <span class="glyphicon glyphicon-link"aria-hidden="true"></span>&nbsp;全部通知
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="__APP__/List/index/4/1">
                                 <span class="glyphicon glyphicon-link" aria-hidden="true"></span>&nbsp;会议通知
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="__APP__/List/index/4/2">
                                 <span class="glyphicon glyphicon-link" aria-hidden="true"></span>&nbsp;事务通知
                             </a>
                         </li>
                     </ul>
                 </li>
-                <li <if condition="CONTROLLER_NAME=='Announce'">class="active"</if>>
-                    <a href="#"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>&nbsp;公示公告</a>
+                <li <if condition="CONTROLLER_NAME=='List'&&$category==5">class="active"</if>>
+                    <a href="__APP__/List/index/5"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>&nbsp;公示公告</a>
                 </li>
-                <li class="dropdown <if condition="CONTROLLER_NAME=='Note'">active</if>">
+                <li class="dropdown <if condition="CONTROLLER_NAME=='List'&&$category==6">active</if>">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                         <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>&nbsp;校内简讯
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu">
                         <li>
-                            <a href="#">
+                            <a href="__APP__/List/index/6">
                                 <span class="glyphicon glyphicon-link" aria-hidden="true"></span>&nbsp;全部简讯
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="__APP__/List/index/6/4">
                                 <span class="glyphicon glyphicon-link" aria-hidden="true"></span>&nbsp;部处简讯
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="__APP__/List/index/6/8">
                                 <span class="glyphicon glyphicon-link" aria-hidden="true"></span>&nbsp;学院简讯
                             </a>
                         </li>
                     </ul>
                 </li>
-                <li><a href="#"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>&nbsp;招标公告</a></li>
+                <li <if condition="CONTROLLER_NAME=='List'&&$category==8">class="active"</if>><a href="__APP__/List/index/8"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>&nbsp;招标公告</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
