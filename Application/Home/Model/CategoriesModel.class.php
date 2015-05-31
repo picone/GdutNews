@@ -1,10 +1,6 @@
 <?php
-
 namespace Home\Model;
-
-use Think\Model;
-
-class CategoriesModel extends Model {
+class CategoriesModel extends \Think\Model {
 	protected $tableName = 'Categories';
 	protected $fields = array (
 			'CategoryID',
@@ -12,10 +8,15 @@ class CategoriesModel extends Model {
 			'CategorySequence' 
 	);
 	public function getAll() {
-		return $this->query ( 'SELECT [CategoryID],[CategoryName] FROM [Categories] ORDER BY CategorySequence' );
+		$category=S('all_category');
+		if(!$category){
+			$category=$this->query ( 'SELECT [CategoryID],[CategoryName] FROM [Categories] ORDER BY CategorySequence' );
+			S('all_category',$category);
+		}
+		return $category;
 	}
 	public function getCategory() { // 获取导航栏
-		$category = S ( '1category' );
+		$category = S ( 'category' );
 		if (! $category) {
 			$data = $this->getAll ();
 			foreach ( $data as &$v ) {

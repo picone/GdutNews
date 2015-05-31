@@ -61,22 +61,20 @@ class ArticlesModel extends Model {
 		}
 		return $data;
 	}
-	public function search($keyword, $searchtype = 1, $department, $category, $date_from, $date_to) { // 搜索，未调用
+	public function search($keyword, $searchtype, $department, $category, $date_from, $date_to,$page) { // 搜索，未调用
 		$data = S ( 'search_' . $keyword . '_' . $searchtype . '_' . $department . '_' . $category . '_' . $date_from . '_' . $date_to );
 		if (! $data) {
+			$keyword=iconv('UTF-8','GB2321',$keyword) ;
 			$sql = 'SELECT [ArticleID],[Title],CONVERT(varchar(10),PublishDate,111) AS PublishDate,DATENAME(WEEKDAY,PublishDate) AS WeekDay,[DepartmentName] FROM [Articles] LEFT JOIN [Department] ON Articles.DepartmentID = Department.DepartmentID';
 			switch (( int ) $searchtype) {
-				case 1 : // 标题搜索
-					$sql .= ' WHERE Title LIKE' . $keyword;
+				case 0 : // 标题搜索
+					$sql .= ' WHERE [Title] LIKE \'%'.$keyword.'%\'';
 					break;
-				case 2 : // 内容搜索
-					$sql .= ' WHERE Content LIKE' . $keyword;
+				case 1 : // 内容搜索
+					$sql .= ' WHERE [Content] LIKE \'%'.$keyword.'%\'';
 					break;
-				case 3 : // 全文搜索（标题和内容都匹配）
-					$sql .= ' WHERE Title LIKE' . $keyword;
-					$sql .= ' AND Content LIKE' . $keyword;
-				default : // 默认标题搜索
-					$sql .= ' WHERE Title LIKE' . $keyword;
+				case 2 : // 全文搜索（标题和内容都匹配）
+					$sql .= sprintf(' WHERE ([Title] LIKE \'%%%s%%\' OR [Content] LIKE \'%%%s%%\')',$keyword,$keyword);
 					break;
 			}
 			if ($department != 0)
@@ -91,6 +89,6 @@ class ArticlesModel extends Model {
 			$data = $this->query ( $sql, $keyword, $keyword );
 			S ( 'search_' . $keyword . '_' . $searchtype . '_' . $department . '_' . $category . '_' . $date_from . '_' . $date_to, $data, C ( 'CACHE_SEARCH' ) );
 		}
-		return $data;
+		return array_slice($data,($page-1)*C('PASSAGE_LEN'),C('PASSAGE_LEN'));
 	}
 }
