@@ -18,25 +18,31 @@
         </div>
     </foreach>
 </div>
-<div class="btn btn-default btn-block" onclick="next()">更多...</div>
+<div id="more" class="btn btn-default btn-block" onclick="next()">更多...</div>
 </div>
 <div style="position:fixed;right:10%;bottom:10%;" class="icon-chevron-up icon-white" onclick="$(document).scrollTop(0);">返回顶部</div>
 <script>
-    var page=1,c1={$category},c2={$category2},str;
+    var page=1,c1={$category},c2={$category2},str,loading=false;
     function next(){
+        loading=true;
         $.getJSON('__APP__/List/page/'+c1+'/'+c2+'/'+(++page),function(a){
-            $.each(a,function(i,v1){
-                str='<h4>'+i+'</h4><div class="list-group">';
-                $.each(v1,function(j,v2){
-                    str+='<a href="__APP__/Article/index/'+v2.id+'" class="list-group-item" target="_blank"><h4 class="list-group-item-heading">'+v2.t+'</h4><p class="list-group-item-text">&nbsp;['+v2.d+']</p></a>';
+            if(a.length){
+                $.each(a,function(i,v1){
+                    str='<h4>'+i+'</h4><div class="list-group">';
+                    $.each(v1,function(j,v2){
+                        str+='<a href="__APP__/Article/index/'+v2.id+'" class="list-group-item" target="_blank"><h4 class="list-group-item-heading">'+v2.t+'</h4><p class="list-group-item-text">&nbsp;['+v2.d+']</p></a>';
+                    });
+                    $('#content').append(str,'</div>');
                 });
-                $('#content').append(str,'</div>');
-            });
+            }else{
+                $('#more').hide();
+            }
+            loading=false;
         });
     }
     $(function(){
         $(window).scroll(function(){
-            if($(document).scrollTop()>=$(document).height()-$(window).height())next();
+            if(!loading&&$(document).scrollTop()>=$(document).height()-$(window).height())next();
         });
     });
 </script>

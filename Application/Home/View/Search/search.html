@@ -17,21 +17,23 @@
 </div>
 <div style="position:fixed;right:10%;bottom:10%;" class="icon-chevron-up icon-white" onclick="$(document).scrollTop(0);">返回顶部</div>
 <script>
-    var page=1;
+    var page= 1,loading=false;
     function next(){
+        loading=true;
         $.post('__APP__/Search/search/'+(++page),{ 'keyword':'{$keyword}','type':{$type},'department':{$department},'category':{$category},'date_from':'{$date_from}','date_to':'{$date_to}'},function(a){
-            if(a){
+            if(a.length){
                 $.each(a,function(i,v){
                     $('#content').append('<div class="list-group"><a href="__APP__/Article/index/'+v.articleid+'" class="list-group-item" target="_blank"><h4 class="list-group-item-heading">'+v.title+'</h4><p class="list-group-item-text">&nbsp;['+v.departmentname+']&nbsp;['+v.publishdate+'}&nbsp;'+v.weekday+']</p></a></div>');
                 });
             }else{
                 $('#more').hide();
             }
+            loading=false;
         });
     }
     $(function(){
         $(window).scroll(function(){
-            if($(document).scrollTop()>=$(document).height()-$(window).height())next();
+            if(!loading&&$(document).scrollTop()>=$(document).height()-$(window).height())next();
         });
     });
 </script>
