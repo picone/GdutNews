@@ -64,7 +64,6 @@ class ArticlesModel extends Model {
 	public function search($keyword, $searchtype, $department, $category, $date_from, $date_to,$page) { // 搜索，未调用
 		$data = S ( 'search_' . $keyword . '_' . $searchtype . '_' . $department . '_' . $category . '_' . $date_from . '_' . $date_to );
 		if (! $data) {
-			$keyword=iconv('UTF-8','GB2321',$keyword) ;
 			$sql = 'SELECT [ArticleID],[Title],CONVERT(varchar(10),PublishDate,111) AS PublishDate,DATENAME(WEEKDAY,PublishDate) AS WeekDay,[DepartmentName] FROM [Articles] LEFT JOIN [Department] ON Articles.DepartmentID = Department.DepartmentID';
 			switch (( int ) $searchtype) {
 				case 0 : // 标题搜索
@@ -86,7 +85,7 @@ class ArticlesModel extends Model {
 			if ($date_to != '')
 				$sql .= sprintf ( ' AND [PublishDate]<\'%s\'', $date_to );
 			$sql .= ' ORDER BY [PublishDate] DESC';
-			$data = $this->query ( $sql, $keyword, $keyword );
+			$data = $this->query ($sql);
 			S ( 'search_' . $keyword . '_' . $searchtype . '_' . $department . '_' . $category . '_' . $date_from . '_' . $date_to, $data, C ( 'CACHE_SEARCH' ) );
 		}
 		return array_slice($data,($page-1)*C('PASSAGE_LEN'),C('PASSAGE_LEN'));
