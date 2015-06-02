@@ -90,4 +90,17 @@ class ArticlesModel extends Model {
 		}
 		return array_slice($data,($page-1)*C('PASSAGE_LEN'),C('PASSAGE_LEN'));
 	}
+	public function getHot($category,$count){
+		$data = S ( 'hot' . $category);
+		if(!$data){
+			$sql='SELECT TOP '.(int)$count.' [ArticleID],[Title],CONVERT(varchar(10),PublishDate,111) AS PublishDate,DATENAME(WEEKDAY,PublishDate) AS WeekDay,[DepartmentName] FROM [Articles] LEFT JOIN [Department] ON Articles.DepartmentID=Department.DepartmentID WHERE PublishDate>DATEADD(DAY,-30,GETDATE())';
+			if($category!=0){
+				$sql.=' AND CategoryID='.(int)$category;
+			}
+			$sql.=' ORDER BY [ViewCount] DESC,[PublishDate] DESC';
+			$data=$this->query($sql);
+			S('hot' . $category,$data,C('CACHE_INDEX'));
+		}
+		return $data;
+	}
 }

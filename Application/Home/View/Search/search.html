@@ -1,24 +1,32 @@
 <include file="Public/header"/>
 <include file="Public/nav"/>
 <div class="container">
-    <div id="content" class="list-group">
-        <foreach name="data" item="val">
-            <a href="__APP__/Article/index/{$val.articleid}" class="list-group-item" target="_blank">
-                <h4 class="list-group-item-heading">{$val.title}</h4>
-                <p class="list-group-item-text">&nbsp;[{$val.departmentname}]&nbsp;[{$val.publishdate}&nbsp;{$val.weekday}]</p>
-            </a>
-        </foreach>
-    </div>
-    <div class="btn btn-default btn-block" onclick="next()">更多...</div>
+    <if condition="count($data)==0">
+        <div class="alert alert-danger">没有找到记录</div>
+        <else/>
+        <div id="content" class="list-group">
+            <foreach name="data" item="val">
+                <a href="__APP__/Article/index/{$val.articleid}" class="list-group-item" target="_blank">
+                    <h4 class="list-group-item-heading">{$val.title}</h4>
+                    <p class="list-group-item-text">&nbsp;[{$val.departmentname}]&nbsp;[{$val.publishdate}&nbsp;{$val.weekday}]</p>
+                </a>
+            </foreach>
+        </div>
+        <div id="more" class="btn btn-default btn-block" onclick="next()">更多...</div>
+    </if>
 </div>
 <div style="position:fixed;right:10%;bottom:10%;" class="icon-chevron-up icon-white" onclick="$(document).scrollTop(0);">返回顶部</div>
 <script>
     var page=1;
     function next(){
         $.post('__APP__/Search/search/'+(++page),{ 'keyword':'{$keyword}','type':{$type},'department':{$department},'category':{$category},'date_from':'{$date_from}','date_to':'{$date_to}'},function(a){
-            $.each(a,function(i,v){
-                $('#content').append('<div class="list-group"><a href="__APP__/Article/index/'+v.articleid+'" class="list-group-item" target="_blank"><h4 class="list-group-item-heading">'+v.title+'</h4><p class="list-group-item-text">&nbsp;['+v.departmentname+']&nbsp;['+v.publishdate+'}&nbsp;'+v.weekday+']</p></a></div>');
-            });
+            if(a){
+                $.each(a,function(i,v){
+                    $('#content').append('<div class="list-group"><a href="__APP__/Article/index/'+v.articleid+'" class="list-group-item" target="_blank"><h4 class="list-group-item-heading">'+v.title+'</h4><p class="list-group-item-text">&nbsp;['+v.departmentname+']&nbsp;['+v.publishdate+'}&nbsp;'+v.weekday+']</p></a></div>');
+                });
+            }else{
+                $('#more').hide();
+            }
         });
     }
     $(function(){
