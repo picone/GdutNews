@@ -23,15 +23,9 @@ class CategoriesModel extends \Think\Model {
 				$t = D ( 'Categories2' )->get ( $v ['categoryid'] );
 				$category [$v ['categoryid']] ['name'] = $v ['categoryname'];
 				if (isset ( $t [0] )) {
-					$category [$v ['categoryid']] ['data'] [] = array (
-						'id' => 0,
-						'name' => '全部' . substr ( $v ['categoryname'], 6 )
-					); // 当目录名不是4个中文字符时会显示错误
+					$category [$v['categoryid']]['data'][0]='全部'.substr($v['categoryname'],6); // 当目录名不是4个中文字符时会显示错误
 					foreach ( $t as &$v2 ) {
-						$category [$v ['categoryid']] ['data'] [] = array (
-								'id' => $v2 ['id'],
-								'name' => $v2 ['name'] 
-						);
+						$category [$v['categoryid']] ['data'] [$v2 ['id']]=$v2['name'];
 					}
 				}
 			}
