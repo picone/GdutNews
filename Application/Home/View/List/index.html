@@ -5,22 +5,26 @@
   <li><a href="__APP__">主页</a></li>
   <li class="active">{$category_name}</li>
 </ol>
-<div id="content">
-    <foreach name="data" item="info">
-        <h4>{$key}</h4>
-        <div class="list-group">
-            <foreach name="info" item="val">
-                <a href="__APP__/Article/index/{$val.id}" class="list-group-item" target="_blank">
-                    <h4 class="list-group-item-heading">{$val.t}</h4>
-                    <p class="list-group-item-text">&nbsp;[{$val.d}]</p>
-                </a>
-            </foreach>
-        </div>
-    </foreach>
+<div id="content" class="container">
+    <if condition="empty($data)">
+        <div class="alert alert-danger">没有找到文章</div>
+        <else/>
+        <foreach name="data" item="info">
+            <h4>{$key}</h4>
+            <div class="list-group">
+                <foreach name="info" item="val">
+                    <a href="__APP__/Article/index/{$val.id}" class="list-group-item" target="_blank">
+                        <h4 class="list-group-item-heading">{$val.t}</h4>
+                        <p class="list-group-item-text">&nbsp;[{$val.d}]</p>
+                    </a>
+                </foreach>
+            </div>
+        </foreach>
+    </if>
+
 </div>
 <div id="more" class="btn btn-default btn-block" onclick="next()">更多...</div>
 </div>
-<div style="position:fixed;right:1%;bottom:1%;" class="icon-chevron-up icon-white" onclick="$(document).scrollTop(0);"><button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-arrow-up"aria-hidden="true"></span>&nbsp;返回顶部</button></div>
 <script>
     var page=1,c1={$category},c2={$category2},str,loading=false;
     function next(){
@@ -36,10 +40,6 @@
             loading=false;
         });
     }
-    $(function(){
-        $(window).scroll(function(){
-            if(!loading&&$(document).scrollTop()>=$(document).height()-$(window).height())next();
-        });
-    });
 </script>
+<include file="Public/back"/>
 <include file="Public/footer"/>

@@ -24,7 +24,7 @@ class ArticlesModel extends Model {
 	public function getPassage($id) { // 新闻详情
 		$data = S ( 'passage' . $id );
 		if (! $data) {
-			$data = $this->query ( 'SELECT TOP 1 [Title],[Content] FROM [Articles] WHERE ArticleID=%d', ( int ) $id );
+			$data = $this->query ( 'SELECT TOP 1 [Title],[Content],[CategoryID],[CategoryID2] FROM [Articles] WHERE ArticleID=%d', ( int ) $id );
 			if (isset ( $data [0] )) {
 				$data = $data [0];
 				S ( 'passage' . $id, $data, C ( 'CACHE_PASSAGE' ) );

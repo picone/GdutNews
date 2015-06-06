@@ -1,0 +1,9 @@
+<div style="position:fixed;right:1%;bottom:1%;z-index:10;display:none;" class="icon-chevron-up icon-white" onclick="$(document).scrollTop(0);" id="back"><button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>&nbsp;返回顶部</button></div>
+<script>
+    $(function(){
+        $(window).scroll(function(){
+            if($(document).scrollTop()>$(window).height()+20){$('#back').show();}else{$('#back').hide();}
+            if(!loading&&$(document).scrollTop()>=$(document).height()-$(window).height())next();
+        });
+    });
+</script>
