@@ -1,10 +1,14 @@
 <include file="Public/header"/>
 <include file="Public/nav"/>
-<div class="container">
+<ol class="breadcrumb visible-xs">
+  <li><a href="__APP__">主页</a></li>
+  <li class="active">{$category_name}</li>
+</ol>
+<div class="container col-sm-offset-3 col-sm-6">
     <if condition="isset($data['title'])">
-        <div class="panel panel-info">
+        <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">
+                <h3 class="panel-title" align="center">
                     {$data.title}
                 </h3>
             </div>

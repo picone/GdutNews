@@ -1,6 +1,13 @@
 <include file="Public/header"/>
 <include file="Public/nav"/>
 <div class="container">
+<ol class="breadcrumb visible-xs">
+  <li><a href="__APP__">主页</a></li>
+  <li class="active">搜索结果</li>
+</ol>
+<div class="page-header hidden-xs">
+	<h3>搜索结果</h3>
+</div>
     <if condition="count($data)==0">
         <div class="alert alert-danger">没有找到记录</div>
         <else/>
@@ -15,7 +22,7 @@
         <div id="more" class="btn btn-default btn-block" onclick="next()">更多...</div>
     </if>
 </div>
-<div style="position:fixed;right:10%;bottom:10%;" class="icon-chevron-up icon-white" onclick="$(document).scrollTop(0);">返回顶部</div>
+<div style="position:fixed;right:1%;bottom:1%;" class="icon-chevron-up icon-white" onclick="$(document).scrollTop(0);"><button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-arrow-up"aria-hidden="true"></span>&nbsp;返回顶部</button></div>
 <script>
     var page= 1,loading=false;
     function next(){
