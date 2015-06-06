@@ -1,5 +1,19 @@
 <include file="Public/header"/>
 <include file="Public/nav"/>
-标题:{$data.title}
-内容:{$data.content}
+<div class="container">
+    <if condition="isset($data['title'])">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    {$data.title}
+                </h3>
+            </div>
+            <div class="panel-body">
+                {$data.content}
+            </div>
+        </div>
+        <else/>
+        <div class="alert alert-danger">没有找到文章</div>
+    </if>
+</div>
 <include file="Public/footer"/>
