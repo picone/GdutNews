@@ -1,0 +1,35 @@
+<include file="Public/header"/>
+<body>
+	<div class="container">
+		<h1 align="center">广东工业大学</h1>
+		<h2 align="center">新闻通知网</h2>
+		<div
+			class="panel panel-default col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4">
+			<div class="panel-body">
+				<form method="POST" action="__APP__/Login/login">
+					<div class="form-group">
+						<label for="un"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;用户邮箱</label>
+						<input type="text" id="un" name="un" class="form-control" placeholder="用户名" required="required" maxlength="40"/>
+					</div>
+					<div class="form-group">
+						<label for="passwd"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span>&nbsp;用户密码</label>
+						<input type="password" id="passwd" name="passwd" class="form-control" placeholder="密码" required="required" maxlength="255"/>
+					</div>
+					<div class="form-group">
+						<div class="checkbox">
+							<label><input id="remember" name="remember" type="checkbox" value="1" >&nbsp;记住我 </label>
+						</div>
+					</div>
+                    <if condition="isset($output)">
+                    <div class="alert alert-danger">{$output}</div>
+                    </if>
+					<div class="form-group">
+						<button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+					</div>
+				</form>
+				<div style="text-align:center;">
+					<a href="#">首次登录</a>&nbsp;|&nbsp;<a href="#">找回密码</a>
+				</div>
+			</div>
+		</div>
+<include file="Public/footer"/>
