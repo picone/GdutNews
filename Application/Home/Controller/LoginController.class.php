@@ -14,7 +14,7 @@ class LoginController extends Controller {
 				cookie ( 'auth', authcode ( implode ( '\t', array (
 						I ( 'post.un' ),
 						I ( 'post.passwd' ) 
-				) ), 'ENCODE' ), I ( 'post.remember', 0 ) == 0 ? 0 : 7776000 );
+				) ), 'ENCODE' ), I ( 'post.remember', 0 ) == 0 ? 0 : 2592000 );
 				redirect ( __APP__ );
 			} else {
 				$this->assign ( 'un', I ( 'post.un' ) );

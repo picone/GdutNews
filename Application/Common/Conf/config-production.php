@@ -10,7 +10,7 @@ return array (
 		'URL_PARAMS_BIND_TYPE' => 1,
 		'DEFAULT_FILTER' => 'htmlspecialchars,addslashes',
 		// 缓存设置
-		'COOKIE_EXPIRE' => 7200,
+		'DATA_CACHE_TIME' => 7200,
 		// 导航栏缓存时间
 		'CACHE_NAVIGATION' => 7200,
 		// 首页新闻缓存时间
