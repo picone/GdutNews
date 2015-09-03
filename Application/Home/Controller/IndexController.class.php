@@ -8,19 +8,19 @@ class IndexController extends \Think\Controller {
 		$this->assign ( 'data', array (
 				// array('name'=>'最近热点','data'=>D('Articles')->getHot(0,5)),
 				array (
-						'id' => 4,
+						'id' => C ( 'SCHOOL_NOTICE' ),
 						'name' => '最新通知',
-						'data' => D ( 'Articles' )->getLatest ( 4, 12 ) 
+						'data' => D ( 'Articles' )->getLatest ( C ( 'SCHOOL_NOTICE' ), 12 ) 
 				),
 				array (
-						'id' => 5,
+						'id' => C ( 'SCHOOL_ANNOUNCEMENT' ),
 						'name' => '最新公告',
-						'data' => D ( 'Articles' )->getLatest ( 5, 5 ) 
+						'data' => D ( 'Articles' )->getLatest ( C ( 'SCHOOL_ANNOUNCEMENT' ), 5 ) 
 				),
 				array (
-						'id' => 6,
+						'id' => C ( 'SCHOOL_NEWSLETTER' ),
 						'name' => '最新简讯',
-						'data' => D ( 'Articles' )->getLatest ( 6, 4 ) 
+						'data' => D ( 'Articles' )->getLatest ( C ( 'SCHOOL_NEWSLETTER' ), 4 ) 
 				) 
 		) );
 		$this->display ();

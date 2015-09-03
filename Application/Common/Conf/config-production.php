@@ -21,6 +21,14 @@ return array (
 		'CACHE_SEARCH' => 120,
 		// 新闻列表每页数目
 		'PASSAGE_LEN' => 30,
+		// 校内通知
+		'SCHOOL_NOTICE' => 4,
+		// 公示公告
+		'SCHOOL_ANNOUNCEMENT' => 5,
+		// 校内简讯
+		'SCHOOL_NEWSLETTER' => 6,
+		// 招标公告
+		'SCHOOL_BIDDING' => 8,
 		// 游客账户
 		'LOGIN_USERNAME' => '',
 		'LOGIN_PASSWORD' => '',

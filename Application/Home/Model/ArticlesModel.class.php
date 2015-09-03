@@ -66,7 +66,7 @@ class ArticlesModel extends Model {
 					$sql .= ' WHERE [Content] LIKE \'%' . $keyword . '%\'';
 					break;
 				case 2 : // 全文搜索（标题和内容都匹配）
-					$sql .= ' WHERE ([Title] LIKE \'%' . $keyword . '%\' OR [Content] LIKE \'%' . $keyword . '%\')';
+					$sql .= ' WHERE ([Title] LIKE \'%' . $keyword . '%\' AND [Content] LIKE \'%' . $keyword . '%\')';
 					break;
 			}
 			if ($department != 0)
