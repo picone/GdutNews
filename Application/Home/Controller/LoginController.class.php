@@ -15,7 +15,7 @@ class LoginController extends Controller {
 						I ( 'post.un' ),
 						I ( 'post.passwd' ) 
 				) ), 'ENCODE' ), I ( 'post.remember', 0 ) == 0 ? 0 : 2592000 );
-				redirect ( __APP__ );
+				redirect ( __APP__ . '/' . $GLOBALS ['url'] );
 			} else {
 				$this->assign ( 'un', I ( 'post.un' ) );
 				$this->assign ( 'passwd', I ( 'post.passwd' ) );
@@ -25,5 +25,12 @@ class LoginController extends Controller {
 		} else {
 			$this->error ( '非法操作' );
 		}
+	}
+	public function logout() {
+		cookie ( 'auth', null );
+		$this->display ();
+	}
+	public function findPassword() {
+		$this->display ( 'findPassword' );
 	}
 }
