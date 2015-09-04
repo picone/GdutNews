@@ -34,5 +34,5 @@ return array (
 		'LOGIN_PASSWORD' => '',
 		// 算法密钥
 		'AUTH_KEY' => '',
-		'DES_KEY' => '' 
+		'DES_KEY' => "" 
 );
