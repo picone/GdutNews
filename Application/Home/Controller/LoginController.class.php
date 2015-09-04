@@ -6,6 +6,7 @@ use Think\Controller;
 
 class LoginController extends Controller {
 	public function index() {
+		cookie ( 'auth', null );
 		$this->display ();
 	}
 	public function login() {
@@ -25,10 +26,6 @@ class LoginController extends Controller {
 		} else {
 			$this->error ( '非法操作' );
 		}
-	}
-	public function logout() {
-		cookie ( 'auth', null );
-		$this->display ();
 	}
 	public function findPassword() {
 		$this->display ( 'findPassword' );
