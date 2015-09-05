@@ -15,11 +15,15 @@ class LoginBehavior {
 					$GLOBALS ['username'] = '游客';
 				}
 			} else {
-				list ( $username, $password ) = explode ( '\t', $auth );
-				$GLOBALS ['username'] = D ( 'User' )->login ( $username, $password );
-				if (! $GLOBALS ['username']) {
-					$GLOBALS ['url'] = $_SERVER ['PATH_INFO'];
-					redirect ( __APP__ . '/Login' );
+				if (session ( 'isLogin' ) == null || session ( 'isLogin' ) != true) {
+					list ( $username, $password ) = explode ( '\t', $auth );
+					$GLOBALS ['username'] = D ( 'User' )->login ( $username, $password );
+					if (! $GLOBALS ['username']) {
+						$GLOBALS ['url'] = $_SERVER ['PATH_INFO'];
+						redirect ( __APP__ . '/Login' );
+					} else {
+						session ( 'isLogin', true );
+					}
 				}
 			}
 		}

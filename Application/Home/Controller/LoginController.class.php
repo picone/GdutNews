@@ -7,6 +7,7 @@ use Think\Controller;
 class LoginController extends Controller {
 	public function index() {
 		cookie ( 'auth', null );
+		session ( 'isLogin', null );
 		$this->display ();
 	}
 	public function login() {
@@ -16,6 +17,7 @@ class LoginController extends Controller {
 						I ( 'post.un' ),
 						I ( 'post.passwd' ) 
 				) ), 'ENCODE' ), I ( 'post.remember', 0 ) == 0 ? 0 : 2592000 );
+				session ( 'isLogin', true );
 				redirect ( __APP__ . '/' . $GLOBALS ['url'] );
 			} else {
 				$this->assign ( 'un', I ( 'post.un' ) );
