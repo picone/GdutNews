@@ -68,8 +68,15 @@
                 <li <if condition="CONTROLLER_NAME=='List'&&$category==8">class="active"</if>><a href="__APP__/List/index/8"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>&nbsp;招标公告</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="__APP__/Login"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;{$GLOBALS.username}</a>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;{$GLOBALS.username}
+                    </a>
+                    <ul class="dropdown-menu" data-role="menu">
+                        <li>
+                            <a href="__APP__/Login">&nbsp;退出</a>
+                        </li>
+                    </ul>
                 </li>
                 <li>
                     <a href="#info" data-toggle="modal" data-url="__APP__/Search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;内容检索</a>
@@ -83,5 +90,5 @@
 </nav>
 <div class="modal" id="info"></div>
 <script>
-    $("a[href=#info]").click(function(){$("#info").load($(this).attr("data-url"));});
+    $("a[href=#info]").click(function(){$("#info").load($(this).data("url"));});
 </script>
