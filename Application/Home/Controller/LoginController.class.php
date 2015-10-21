@@ -12,12 +12,14 @@ class LoginController extends Controller {
 	}
 	public function login() {
 		if (IS_POST) {
-			if (D ( 'User' )->login ( I ( 'post.un' ), I ( 'post.passwd' ) )) {
+			$GLOBALS ['username'] = D ( 'User' )->login ( I ( 'post.un' ), I ( 'post.passwd' ) );
+			if ($GLOBALS ['username']) {
 				cookie ( 'auth', authcode ( implode ( '\t', array (
 						I ( 'post.un' ),
 						I ( 'post.passwd' ) 
 				) ), 'ENCODE' ), I ( 'post.remember', 0 ) == 0 ? 0 : 2592000 );
 				session ( 'isLogin', true );
+				session ( 'username', $GLOBALS ['username'] );
 				redirect ( __APP__ . '/' . $GLOBALS ['url'] );
 			} else {
 				$this->assign ( 'un', I ( 'post.un' ) );
@@ -29,62 +31,52 @@ class LoginController extends Controller {
 			$this->error ( '非法操作' );
 		}
 	}
-
 	public function lost() {
-        $ch=curl_init('http://news.gdut.edu.cn/FindPassword.aspx');
-        curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
-        curl_setopt($ch,CURLOPT_USERAGENT,'Mozilla/5.0 (Linux; U; Android 4.4.2; en-us;)');
-        curl_setopt($ch,CURLOPT_HEADER,1);
-        $page=curl_exec($ch);
-        session('state',$this->_substr($page,'id="__VIEWSTATE" value="','"'));
-        session('validation',$this->_substr($page,'__EVENTVALIDATION" value="','"'));
-        session('session_id',$this->_substr($page,'ASP.NET_SessionId=',';'));
-		$this->display( );
-        curl_close($ch);
+		$ch = curl_init ( 'http://news.gdut.edu.cn/FindPassword.aspx' );
+		curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, 1 );
+		curl_setopt ( $ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Linux; U; Android 4.4.2; en-us;)' );
+		curl_setopt ( $ch, CURLOPT_HEADER, 1 );
+		$page = curl_exec ( $ch );
+		session ( 'state', $this->_substr ( $page, 'id="__VIEWSTATE" value="', '"' ) );
+		session ( 'validation', $this->_substr ( $page, '__EVENTVALIDATION" value="', '"' ) );
+		session ( 'session_id', $this->_substr ( $page, 'ASP.NET_SessionId=', ';' ) );
+		$this->display ();
+		curl_close ( $ch );
 	}
-
-    public function vcode(){
-        ob_clean();
-        header('Content-Type:image/Jpeg;');
-        $ch=curl_init('http://news.gdut.edu.cn/ValidateCode.aspx');
-        curl_setopt($ch,CURLOPT_USERAGENT,'Mozilla/5.0 (Linux; U; Android 4.4.2; en-us;)');
-        curl_setopt($ch,CURLOPT_COOKIE,'ASP.NET_SessionId='.session('session_id'));
-        curl_exec($ch);
-        var_dump(curl_getinfo($ch));
-        curl_close($ch);
-    }
-
-    public function post(){
-        if(IS_POST){
-            $fields=array(
-                '__VIEWSTATE'=>session('state'),
-                '__EVENTVALIDATION'=>session('validation'),
-                'ctl00$ContentPlaceHolder1$TextBox1'=>I('post.email',''),
-                'ctl00$ContentPlaceHolder1$TextBox2'=>I('post.name'),
-                'ctl00$ContentPlaceHolder1$TextBox3'=>I('post.vcode'),
-                'ctl00$ContentPlaceHolder1$Button1'=>'取回密码'
-            );
-            $ch=curl_init('http://news.gdut.edu.cn/FindPassword.aspx');
-            curl_setopt($ch,CURLOPT_USERAGENT,'Mozilla/5.0 (Linux; U; Android 4.4.2; en-us;)');
-            curl_setopt($ch,CURLOPT_POST,1);
-            curl_setopt($ch,CURLOPT_POSTFIELDS,http_build_query($fields));
-            curl_setopt($ch,CURLOPT_COOKIE,'ASP.NET_SessionId='.session('session_id'));
-            curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
-            $page=curl_exec($ch);
-            $this->assign('output',$this->_substr($page,'alert("','"'));
-            $this->display('lost');
-        }
-    }
-
-    /**
-     * @param $str string 截取的字符串
-     * @param $start string 字符串开头
-     * @param $end string 字符串结尾
-     * @return string 截取结果
-     */
-    private function _substr($str,$start,$end){
-        $pos1=strpos($str,$start)+strlen($start);
-        $pos2=strpos($str,$end,$pos1);
-        return substr($str,$pos1,$pos2-$pos1);
-    }
+	public function vcode() {
+		ob_clean ();
+		header ( 'Content-Type:image/Jpeg;' );
+		$ch = curl_init ( 'http://news.gdut.edu.cn/ValidateCode.aspx' );
+		curl_setopt ( $ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Linux; U; Android 4.4.2; en-us;)' );
+		curl_setopt ( $ch, CURLOPT_COOKIE, 'ASP.NET_SessionId=' . session ( 'session_id' ) );
+		curl_exec ( $ch );
+		var_dump ( curl_getinfo ( $ch ) );
+		curl_close ( $ch );
+	}
+	public function post() {
+		if (IS_POST) {
+			$fields = array (
+					'__VIEWSTATE' => session ( 'state' ),
+					'__EVENTVALIDATION' => session ( 'validation' ),
+					'ctl00$ContentPlaceHolder1$TextBox1' => I ( 'post.email', '' ),
+					'ctl00$ContentPlaceHolder1$TextBox2' => I ( 'post.name' ),
+					'ctl00$ContentPlaceHolder1$TextBox3' => I ( 'post.vcode' ),
+					'ctl00$ContentPlaceHolder1$Button1' => '取回密码' 
+			);
+			$ch = curl_init ( 'http://news.gdut.edu.cn/FindPassword.aspx' );
+			curl_setopt ( $ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Linux; U; Android 4.4.2; en-us;)' );
+			curl_setopt ( $ch, CURLOPT_POST, 1 );
+			curl_setopt ( $ch, CURLOPT_POSTFIELDS, http_build_query ( $fields ) );
+			curl_setopt ( $ch, CURLOPT_COOKIE, 'ASP.NET_SessionId=' . session ( 'session_id' ) );
+			curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, 1 );
+			$page = curl_exec ( $ch );
+			$this->assign ( 'output', $this->_substr ( $page, 'alert("', '"' ) );
+			$this->display ( 'lost' );
+		}
+	}
+	private function _substr($str, $start, $end) {
+		$pos1 = strpos ( $str, $start ) + strlen ( $start );
+		$pos2 = strpos ( $str, $end, $pos1 );
+		return substr ( $str, $pos1, $pos2 - $pos1 );
+	}
 }
