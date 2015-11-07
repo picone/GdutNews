@@ -37,7 +37,11 @@ class ArticlesModel extends Model {
      * @return array 新闻记录集
      */
     public function getLatest($id,$count){
-        return $this->field('ArticleID,Title,CONVERT(varchar(10),PublishDate,111) AS PublishDate,DATENAME(WEEKDAY,PublishDate) AS WeekDay,DepartmentName')->join('Department ON Articles.DepartmentID=Department.DepartmentID')->where('CategoryID=%d',$id)->order('PublishDate DESC')->limit($count)->select();
+        $model=$this;
+        if($id>0){
+            $model=$model->where('CategoryID=%d',$id);
+        }
+        return $model->field('ArticleID,Title,CONVERT(varchar(10),PublishDate,111) AS PublishDate,DATENAME(WEEKDAY,PublishDate) AS WeekDay,DepartmentName')->join('Department ON Articles.DepartmentID=Department.DepartmentID')->order('PublishDate DESC')->limit($count)->select();
     }
 
     /**
