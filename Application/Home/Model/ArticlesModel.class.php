@@ -20,80 +20,90 @@ class ArticlesModel extends Model {
 			'ViewCount',
 			'CategoryID2' 
 	);
-	public function getPassage($id) { // 新闻详情
-		$data = $this->query ( 'SELECT TOP 1 [Title],[Content],[CategoryID],[CategoryID2] FROM [Articles] WHERE ArticleID=%d', ( int ) $id );
-		if (isset ( $data [0] ))
-			return $data [0];
-		else
-			return null;
-	}
-	public function getLatest($id, $count) { // 获取最新count条新闻
-		$data = S ( 'index' . $id . '_' . $count );
-		if (! $data) {
-			$data = $this->query ( 'SELECT TOP %d [ArticleID],[Title],CONVERT(varchar(10),PublishDate,111) AS PublishDate,DATENAME(WEEKDAY,PublishDate) AS WeekDay,[DepartmentName] FROM [Articles] LEFT JOIN [Department] ON Articles.DepartmentID=Department.DepartmentID WHERE CategoryID=%d ORDER BY [PublishDate] DESC', ( int ) $count, ( int ) $id );
-			S ( 'index' . $id . '_' . $count, $data, C ( 'CACHE_INDEX' ) );
-		}
-		return $data;
-	}
-	public function getTitle($category, $category2, $page) { // 获取分类新闻标题
-		$data = S ( 'title' . $category . '_' . $category2 . '_' . $page );
-		if (! $data) {
-			if ($category2 == 0)
-				$tmp = $this->query ( 'SELECT TOP %d [ArticleID],[Title],CONVERT(varchar(10),PublishDate,111) AS PublishDate,DATENAME(WEEKDAY,PublishDate) AS WeekDay,[DepartmentName] FROM [Articles] LEFT JOIN [Department] ON Articles.DepartmentID=Department.DepartmentID WHERE CategoryID=%d AND ArticleID NOT IN (SELECT TOP %d [ArticleID] FROM [Articles] WHERE CategoryID=%d ORDER BY [PublishDate] DESC) ORDER BY [PublishDate] DESC', C ( 'PASSAGE_LEN' ), ( int ) $category, (( int ) $page - 1) * C ( 'PASSAGE_LEN' ), ( int ) $category );
-			else
-				$tmp = $this->query ( 'SELECT TOP %d [ArticleID],[Title],CONVERT(varchar(10),PublishDate,111) AS PublishDate,DATENAME(WEEKDAY,PublishDate) AS WeekDay,[DepartmentName] FROM [Articles] LEFT JOIN [Department] ON Articles.DepartmentID=Department.DepartmentID WHERE CategoryID=%d AND CategoryID2=%d AND ArticleID NOT IN (SELECT TOP %d [ArticleID] FROM [Articles] WHERE CategoryID=%d AND CategoryID2=%d ORDER BY [PublishDate] DESC) ORDER BY [PublishDate] DESC', C ( 'PASSAGE_LEN' ), ( int ) $category, ( int ) $category2, (( int ) $page - 1) * C ( 'PASSAGE_LEN' ), ( int ) $category, ( int ) $category2 );
-			$data = array ();
-			foreach ( $tmp as &$val ) {
-				$data [$val ['publishdate'] . ' ' . $val ['weekday']] [] = array (
-						'id' => $val ['articleid'],
-						't' => $val ['title'],
-						'd' => $val ['departmentname'] 
-				);
-			}
-			S ( 'title' . $category . '_' . $category2 . '_' . $page, $data, C ( 'CACHE_CATEGORY' ) );
-		}
-		return $data;
-	}
-	public function search($keyword, $searchtype, $department, $category, $date_from, $date_to, $page) { // 搜索
-		$data = S ( 'search_' . $keyword . '_' . $searchtype . '_' . $department . '_' . $category . '_' . $date_from . '_' . $date_to );
-		if (! $data) {
-			$sql = 'SELECT [ArticleID],[Title],CONVERT(varchar(10),PublishDate,111) AS PublishDate,DATENAME(WEEKDAY,PublishDate) AS WeekDay,[DepartmentName] FROM [Articles] LEFT JOIN [Department] ON Articles.DepartmentID = Department.DepartmentID';
-			switch (( int ) $searchtype) {
-				case 0 : // 标题搜索
-					$sql .= ' WHERE [Title] LIKE \'%' . $keyword . '%\'';
-					break;
-				case 1 : // 内容搜索
-					$sql .= ' WHERE [Content] LIKE \'%' . $keyword . '%\'';
-					break;
-				case 2 : // 全文搜索（标题和内容都匹配）
-					$sql .= ' WHERE ([Title] LIKE \'%' . $keyword . '%\' AND [Content] LIKE \'%' . $keyword . '%\')';
-					break;
-			}
-			if ($department != 0)
-				$sql .= ' AND Articles.DepartmentID=' . ( int ) $department;
-			if ($category != 0)
-				$sql .= ' AND Articles.CategoryID=' . ( int ) $category;
-			if ($date_from != '')
-				$sql .= sprintf ( ' AND [PublishDate]>\'%s\'', $date_from );
-			if ($date_to != '')
-				$sql .= sprintf ( ' AND [PublishDate]<\'%s\'', $date_to );
-			$sql .= ' ORDER BY [PublishDate] DESC';
-			$data = $this->query ( $sql );
-			S ( 'search_' . $keyword . '_' . $searchtype . '_' . $department . '_' . $category . '_' . $date_from . '_' . $date_to, $data, C ( 'CACHE_SEARCH' ) );
-		}
-		return array_slice ( $data, ($page - 1) * C ( 'PASSAGE_LEN' ), C ( 'PASSAGE_LEN' ) );
-	}
-	public function getHot($category, $count) { // 热点新闻，未调用
-		$data = S ( 'hot' . $category );
-		if (! $data) {
-			$sql = 'SELECT TOP ' . ( int ) $count . ' [ArticleID],[Title],CONVERT(varchar(10),PublishDate,111) AS PublishDate,DATENAME(WEEKDAY,PublishDate) AS WeekDay,[DepartmentName] FROM [Articles] LEFT JOIN [Department] ON Articles.DepartmentID=Department.DepartmentID WHERE PublishDate>DATEADD(DAY,-30,GETDATE())';
-			if ($category != 0) {
-				$sql .= ' AND CategoryID=' . ( int ) $category;
-			}
-			$sql .= ' ORDER BY [ViewCount] DESC,[PublishDate] DESC';
-			$data = $this->query ( $sql );
-			S ( 'hot' . $category, $data, C ( 'CACHE_INDEX' ) );
-		}
-		return $data;
-	}
+
+    /**
+     * 获取文章内容
+     * @param int $id 文章ID
+     * @return array 文章详细内容
+     */
+    public function getPassage($id){
+        return $this->field('Title,Content,CategoryID,CategoryID2')->where('ArticleID=%d',$id)->find();
+    }
+
+    /**
+     * 获取最新count条新闻
+     * @param int $id 类别的ID
+     * @param int $count 新闻条数
+     * @return array 新闻记录集
+     */
+    public function getLatest($id,$count){
+        return $this->field('ArticleID,Title,CONVERT(varchar(10),PublishDate,111) AS PublishDate,DATENAME(WEEKDAY,PublishDate) AS WeekDay,DepartmentName')->join('Department ON Articles.DepartmentID=Department.DepartmentID')->where('CategoryID=%d',$id)->order('PublishDate DESC')->limit($count)->select();
+    }
+
+    /**
+     * 获取分类新闻标题
+     * @param int $category
+     * @param int $catefory2
+     * @param int $page
+     * @return array 对应分类按日期的分类结果
+     */
+    public function getTitle($category,$catefory2,$page){
+        $where['CategoryID']=array('eq',$category);
+        if($catefory2>0)$where['CategoryID2']=array('eq',$catefory2);
+        $data=$this->field('ArticleID,Title,CONVERT(varchar(10),PublishDate,111) AS PublishDate,DATENAME(WEEKDAY,PublishDate) AS WeekDay,DepartmentName')->join('Department ON Articles.DepartmentID=Department.DepartmentID')->where($where)->page($page,C('PASSAGE_LEN'))->order('PublishDate DESC')->select();
+        $result=array();
+        foreach($data as &$val){
+            $result[$val['publishdate'].' '.$val['weekday']][]=array(
+                'id'=>$val['articleid'],
+                't'=>$val['title'],
+                'd'=>$val['departmentname']
+            );
+        }
+        return $result;
+    }
+
+    /**
+     * 搜索文章
+     * @param string $keyword 搜索关键词
+     * @param int $searchtype 搜索类型
+     * @param string $department 部门
+     * @param int $category 分类
+     * @param string $date_from 日期开始
+     * @param string $date_to 日期截止
+     * @param int $page 页码
+     * @return array 搜索结果
+     */
+    public function search($keyword,$search_type,$department,$category,$date_from,$date_to,$page){
+        switch($search_type){
+            case 0://标题搜索
+                $where['Title']=array('LIKE','%'.$keyword.'%');
+                break;
+            case 1://内容搜索
+                $where['Content']=array('LIKE','%'.$keyword.'%');
+                break;
+            case 2://全文搜索
+                $where['Title']=array('LIKE','%'.$keyword.'%');
+                $where['Content']=array('LIKE','%'.$keyword.'%');
+                break;
+            default:
+                return false;
+        }
+        if($department>0)$where['Articles.DepartmentID']=array('eq',intval($department));
+        if($category>0)$where['Articles.CategoryID']=array('eq',intval($category));
+        if($date_from!='')$where['PublishDate'][]=array('gt',$date_from);
+        if($date_to!='')$where['PublishDate'][]=array('lt',$date_to);
+        return $this->field('ArticleID,Title,CONVERT(varchar(10),PublishDate,111) AS PublishDate,DATENAME(WEEKDAY,PublishDate) AS WeekDay,DepartmentName')->join('Department ON Articles.DepartmentID=Department.DepartmentID')->order('PublishDate DESC')->page($page,C('PASSAGE_LEN'))->select();
+    }
+
+    /**
+     * 获取热点新闻
+     * @param int $category 分类ID
+     * @param int $count 获取数量
+     * @return array 该分类的新闻
+     */
+    public function getHot($category,$count){
+        $where['PublishDate']=array('gt','DATEADD(DAY,-30,GETDATE()');
+        if($category>0)$where['CategoryID']=array('eq',intval($category));
+        return $this->field('ArticleID,Title,CONVERT(varchar(10),PublishDate,111) AS PublishDate,DATENAME(WEEKDAY,PublishDate) AS WeekDay,DepartmentName')->join('Department ON Articles.DepartmentID=Department.DepartmentID')->order('ViewCount DESC,PublishDate DESC')->limit($count)->select();
+    }
 }

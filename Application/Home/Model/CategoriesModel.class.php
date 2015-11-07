@@ -9,14 +9,15 @@ class CategoriesModel extends \Think\Model {
 			'CategoryName',
 			'CategorySequence' 
 	);
-	public function getAll() {
-		$category = S ( 'all_category' );
-		if (! $category) {
-			$category = $this->query ( 'SELECT [CategoryID],[CategoryName] FROM [Categories] ORDER BY CategorySequence' );
-			S ( 'all_category', $category );
-		}
-		return $category;
-	}
+
+    /**
+     * 获取所有一级分类的ID和名字
+     * @return array
+     */
+    public function getAll(){
+        return $this->field('CategoryID,CategoryName')->order('CategorySequence')->select();
+    }
+
 	public function getCategory() { // 获取导航栏
 		$category = S ( 'category' );
 		if (! $category) {

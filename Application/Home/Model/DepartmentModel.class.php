@@ -9,12 +9,12 @@ class DepartmentModel extends \Think\Model {
 			'DepartmentName',
 			'DepartmentSequence' 
 	);
-	public function getAll() {
-		$dapartment = S ( 'all_dapartment' );
-		if (! $dapartment) {
-			$dapartment = $this->query ( 'SELECT [DepartmentID],[DepartmentName] FROM [Department] ORDER BY DepartmentSequence' );
-			S ( 'all_dapartment', $dapartment );
-		}
-		return $dapartment;
-	}
+
+    /**
+     * 获取所有部门的ID和名字
+     * @return array
+     */
+    public function getAll(){
+        return $this->field('DepartmentID,DepartmentName')->order('DepartmentSequence')->select();
+    }
 }

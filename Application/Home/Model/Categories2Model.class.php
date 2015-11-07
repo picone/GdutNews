@@ -11,7 +11,13 @@ class Categories2Model extends Model {
 			'Name',
 			'CategoryID' 
 	);
-	public function get($id) {
-		return $this->query ( 'SELECT [ID],[Name] FROM [Categories2] WHERE CategoryID=%d', $id );
-	}
+
+    /**
+     * 获取指定一级分类的二级分类
+     * @param int $id 一级分类ID
+     * @return array 分类的ID和名字
+     */
+    public function get($id){
+        return $this->field('ID,Name')->where('CategoryID=%d',$id)->select();
+    }
 }
