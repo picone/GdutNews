@@ -13,19 +13,13 @@ class LoginBehavior {
 					redirect ( __APP__ . '/Login' );
 				} else {
 					$GLOBALS ['username'] = '游客';
-					session ( 'username', $GLOBALS ['username'] );
 				}
 			} else {
-				if (! session ( 'isLogin' )) {
-					list ( $username, $password ) = explode ( '\t', $auth );
-					$GLOBALS ['username'] = D ( 'User' )->login ( $username, $password );
-					if (! $GLOBALS ['username']) {
-						$GLOBALS ['url'] = $_SERVER ['PATH_INFO'];
-						redirect ( __APP__ . '/Login' );
-					} else {
-						session ( 'isLogin', true );
-						session ( 'username', $GLOBALS ['username'] );
-					}
+				list ( $username, $password ) = explode ( '\t', $auth );
+				$GLOBALS ['username'] = D ( 'User' )->login ( $username, $password );
+				if (! $GLOBALS ['username']) {
+					$GLOBALS ['url'] = $_SERVER ['PATH_INFO'];
+					redirect ( __APP__ . '/Login' );
 				}
 			}
 		}

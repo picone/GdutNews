@@ -18,8 +18,6 @@ class LoginController extends Controller {
 						I ( 'post.un' ),
 						I ( 'post.passwd' ) 
 				) ), 'ENCODE' ), I ( 'post.remember', 0 ) == 0 ? 0 : 2592000 );
-				session ( 'isLogin', true );
-				session ( 'username', $GLOBALS ['username'] );
 				redirect ( __APP__ . '/' . $GLOBALS ['url'] );
 			} else {
 				$this->assign ( 'un', I ( 'post.un' ) );
