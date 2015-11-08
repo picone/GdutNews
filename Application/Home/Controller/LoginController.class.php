@@ -47,7 +47,6 @@ class LoginController extends Controller {
 		curl_setopt ( $ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Linux; U; Android 4.4.2; en-us;)' );
 		curl_setopt ( $ch, CURLOPT_COOKIE, 'ASP.NET_SessionId=' . session ( 'session_id' ) );
 		curl_exec ( $ch );
-		var_dump ( curl_getinfo ( $ch ) );
 		curl_close ( $ch );
 	}
 	public function post() {
