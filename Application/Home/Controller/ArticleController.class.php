@@ -2,7 +2,9 @@
 
 namespace Home\Controller;
 
-class ArticleController extends \Think\Controller {
+use Think\Controller;
+
+class ArticleController extends Controller {
 	public function index($id = 0) {
 		if ($id != 0) {
 			$data = D ( 'Articles' )->getPassage ( $id );
@@ -17,7 +19,7 @@ class ArticleController extends \Think\Controller {
 		}
 		$this->display ();
 	}
-	function formatData($content) {
+	private function formatData($content) {
 		if ($content != null) {
 			// 为表格添加响应式表格样式
 			$content = str_replace ( '<table', '<div class="table-responsive"><table class="table table-bordered table-hover"', $content );

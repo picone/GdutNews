@@ -139,7 +139,7 @@ class ArticlesModel extends Model {
 	}
 	
 	/**
-	 * 获取热点新闻
+	 * 获取热点新闻，未调用
 	 *
 	 * @param int $category 分类ID
 	 * @return array 该分类的新闻

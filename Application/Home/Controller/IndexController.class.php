@@ -2,7 +2,9 @@
 
 namespace Home\Controller;
 
-class IndexController extends \Think\Controller {
+use Think\Controller;
+
+class IndexController extends Controller {
 	public function index() {
 		// 最近新闻加载
 		$this->assign ( 'data', array (

@@ -2,7 +2,9 @@
 
 namespace Home\Controller;
 
-class ListController extends \Think\Controller {
+use Think\Controller;
+
+class ListController extends Controller {
 	public function index($category = 0, $category2 = 0) {
 		$data = D ( 'Categories' )->getCategory ();
 		$this->assign ( 'title', $category2 ? $data [$category] ['data'] [$category2] : $data [$category] ['name'] );

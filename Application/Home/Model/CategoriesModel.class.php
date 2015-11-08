@@ -20,7 +20,12 @@ class CategoriesModel extends Model {
 	public function getAll() {
 		return $this->field ( 'CategoryID,CategoryName' )->order ( 'CategorySequence' )->select ();
 	}
-	public function getCategory() { // 获取导航栏，未使用
+	/**
+	 * 获取导航栏，未调用
+	 * 
+	 * @return array
+	 */
+	public function getCategory() {
 		$category = S ( 'category' );
 		if (! $category) {
 			$data = $this->getAll ();

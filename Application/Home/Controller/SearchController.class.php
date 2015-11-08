@@ -2,7 +2,9 @@
 
 namespace Home\Controller;
 
-class SearchController extends \Think\Controller {
+use Think\Controller;
+
+class SearchController extends Controller {
 	public function index() {
 		$this->assign ( 'department', D ( 'Department' )->getAll () );
 		$this->assign ( 'category', D ( 'Categories' )->getAll () );
@@ -10,8 +12,9 @@ class SearchController extends \Think\Controller {
 	}
 	public function search($page = 1) {
 		try {
-			if (! IS_POST)
+			if (! IS_POST) {
 				throw new \Exception ( '请求类型错误' );
+			}
 			$keyword = strtr ( I ( 'post.keyword', '', '' ), array (
 					'%' => '',
 					'<' => '',
