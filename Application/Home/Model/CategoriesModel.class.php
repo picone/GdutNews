@@ -22,7 +22,7 @@ class CategoriesModel extends Model {
 	}
 	/**
 	 * 获取导航栏，未调用
-	 * 
+	 *
 	 * @return array
 	 */
 	public function getCategory() {
