@@ -2,23 +2,25 @@
 
 namespace Home\Model;
 
-class CategoriesModel extends \Think\Model {
+use Think\Model;
+
+class CategoriesModel extends Model {
 	protected $tableName = 'Categories';
 	protected $fields = array (
 			'CategoryID',
 			'CategoryName',
 			'CategorySequence' 
 	);
-
-    /**
-     * 获取所有一级分类的ID和名字
-     * @return array
-     */
-    public function getAll(){
-        return $this->field('CategoryID,CategoryName')->order('CategorySequence')->select();
-    }
-
-	public function getCategory() { // 获取导航栏
+	
+	/**
+	 * 获取所有一级分类的ID和名字
+	 *
+	 * @return array
+	 */
+	public function getAll() {
+		return $this->field ( 'CategoryID,CategoryName' )->order ( 'CategorySequence' )->select ();
+	}
+	public function getCategory() { // 获取导航栏，未使用
 		$category = S ( 'category' );
 		if (! $category) {
 			$data = $this->getAll ();
