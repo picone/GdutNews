@@ -18,6 +18,6 @@ class DepartmentModel extends Model {
 	 * @return array
 	 */
 	public function getAll() {
-		return $this->field ( 'DepartmentID,DepartmentName' )->order ( 'DepartmentSequence' )->select ();
+		return $this->field ( 'DepartmentID,DepartmentName,DepartmentSequence' )->order ( 'DepartmentSequence' )->select ();
 	}
 }

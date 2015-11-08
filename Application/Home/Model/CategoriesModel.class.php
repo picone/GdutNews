@@ -18,7 +18,7 @@ class CategoriesModel extends Model {
 	 * @return array
 	 */
 	public function getAll() {
-		return $this->field ( 'CategoryID,CategoryName' )->order ( 'CategorySequence' )->select ();
+		return $this->field ( 'CategoryID,CategoryName,CategorySequence' )->order ( 'CategorySequence' )->select ();
 	}
 	/**
 	 * 获取导航栏，未调用
