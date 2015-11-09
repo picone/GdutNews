@@ -15,7 +15,7 @@ class SearchController extends Controller {
 			if (! IS_POST) {
 				throw new \Exception ( '请求类型错误' );
 			}
-			$keyword = strtr ( I ( 'post.keyword', '', '' ), array (
+			$keyword = strtr ( I ( 'post.keyword/s', '', '' ), array (
 					'%' => '',
 					'<' => '',
 					'>' => '',
@@ -25,20 +25,25 @@ class SearchController extends Controller {
 					'(' => '',
 					')' => '' 
 			) );
-			if ($keyword == '')
+			if ($keyword == '') {
 				throw new \Exception ( '请输入关键词' );
+			}
 			$type = I ( 'post.type/d', 0 );
-			if ($type < 0 || $type > 2)
+			if ($type < 0 || $type > 2) {
 				throw new \Exception ( '搜索类型有误' );
+			}
 			$date_from = I ( 'post.date_from/s', '' );
-			if ($date_from != '' && ! preg_match ( '/^\d{4}-\d{1,2}-\d{1,2}$/', $date_from ))
+			if ($date_from != '' && ! preg_match ( '/^\d{4}-\d{1,2}-\d{1,2}$/', $date_from )) {
 				throw new \Exception ( '起始日期有误' );
+			}
 			$date_to = I ( 'post.date_to/s', '' );
-			if ($date_to != '' && ! preg_match ( '/^\d{4}-\d{1,2}-\d{1,2}$/', $date_to ))
+			if ($date_to != '' && ! preg_match ( '/^\d{4}-\d{1,2}-\d{1,2}$/', $date_to )) {
 				throw new \Exception ( '终止日期有误' );
-			$page = ( int ) $page;
-			if ($page <= 0)
+			}
+			$page = intval ( $page );
+			if ($page < 1) {
 				$page = 1;
+			}
 			$data = D ( 'Articles' )->search ( $keyword, $type, I ( 'post.department/d', 0 ), I ( 'post.category/d', 0 ), $date_from, $date_to, $page );
 			if ($page == 1) {
 				$this->assign ( 'data', $data );

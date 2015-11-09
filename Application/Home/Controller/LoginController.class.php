@@ -12,15 +12,15 @@ class LoginController extends Controller {
 	}
 	public function login() {
 		if (IS_POST) {
-			$GLOBALS ['username'] = D ( 'User' )->login ( I ( 'post.un' ), I ( 'post.passwd' ) );
+			$GLOBALS ['username'] = D ( 'User' )->login ( I ( 'post.un/s' ), I ( 'post.passwd/s' ) );
 			if ($GLOBALS ['username']) {
 				cookie ( 'auth', authcode ( implode ( '\t', array (
-						I ( 'post.un' ),
-						I ( 'post.passwd' ) 
-				) ), 'ENCODE' ), I ( 'post.remember', 0 ) == 0 ? 0 : 2592000 );
+						I ( 'post.un/s' ),
+						I ( 'post.passwd/s' ) 
+				) ), 'ENCODE' ), I ( 'post.remember/d', 0 ) == 0 ? 0 : 2592000 );
 				redirect ( __APP__ . '/' . $GLOBALS ['url'] );
 			} else {
-				$this->assign ( 'un', I ( 'post.un' ) );
+				$this->assign ( 'un', I ( 'post.un/s' ) );
 				$this->assign ( 'output', '账号或密码错误!' );
 				$this->display ( 'index' );
 			}
@@ -54,9 +54,9 @@ class LoginController extends Controller {
 			$fields = array (
 					'__VIEWSTATE' => session ( 'state' ),
 					'__EVENTVALIDATION' => session ( 'validation' ),
-					'ctl00$ContentPlaceHolder1$TextBox1' => I ( 'post.email', '' ),
-					'ctl00$ContentPlaceHolder1$TextBox2' => I ( 'post.name' ),
-					'ctl00$ContentPlaceHolder1$TextBox3' => I ( 'post.vcode' ),
+					'ctl00$ContentPlaceHolder1$TextBox1' => I ( 'post.email/s', '' ),
+					'ctl00$ContentPlaceHolder1$TextBox2' => I ( 'post.name/s' ),
+					'ctl00$ContentPlaceHolder1$TextBox3' => I ( 'post.vcode/s' ),
 					'ctl00$ContentPlaceHolder1$Button1' => '取回密码' 
 			);
 			$ch = curl_init ( 'http://news.gdut.edu.cn/FindPassword.aspx' );
@@ -68,6 +68,9 @@ class LoginController extends Controller {
 			$page = curl_exec ( $ch );
 			$this->assign ( 'output', $this->_substr ( $page, 'alert("', '"' ) );
 			$this->display ( 'lost' );
+			curl_close ( $ch );
+		} else {
+			$this->error ( '非法操作' );
 		}
 	}
 	private function _substr($str, $start, $end) {

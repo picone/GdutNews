@@ -6,17 +6,13 @@ use Think\Controller;
 
 class ArticleController extends Controller {
 	public function index($id = 0) {
-		if ($id != 0) {
-			$data = D ( 'Articles' )->getPassage ( $id );
-			$category = D ( 'Categories' )->getCategory ();
-			$this->assign ( 'category', $data ['categoryid'] );
-			$this->assign ( 'category2', $data ['categoryid2'] );
-			$this->assign ( 'title', $data ['title'] );
-			$this->assign ( 'category_name', $data ['categoryid2'] == 0 ? $category [$data ['categoryid']] ['name'] : $category [$data ['categoryid']] ['data'] [$data ['categoryid2']] );
-			$content = $data ['content'];
-			$content = $this->formatData ( $content );
-			$this->assign ( 'content', $content );
-		}
+		$data = D ( 'Articles' )->getPassage ( $id );
+		$category = D ( 'Categories' )->getCategory ();
+		$this->assign ( 'title', $data ['title'] );
+		$this->assign ( 'category', $data ['categoryid'] );
+		$this->assign ( 'category2', $data ['categoryid2'] );
+		$this->assign ( 'content', $this->formatData ( $data ['content'] ) );
+		$this->assign ( 'category_name', $data ['categoryid2'] == 0 ? $category [$data ['categoryid']] ['name'] : $category [$data ['categoryid']] ['data'] [$data ['categoryid2']] );
 		$this->display ();
 	}
 	private function formatData($content) {

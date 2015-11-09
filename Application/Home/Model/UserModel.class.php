@@ -14,9 +14,8 @@ class UserModel extends Model {
 	);
 	public function login($username, $password) {
 		$result = false;
-		if ($username === C ( 'LOGIN_USERNAME' )) {
-			if ($password === C ( 'LOGIN_PASSWORD' ))
-				$result = '游客';
+		if ($username === C ( 'LOGIN_USERNAME' ) && $password === C ( 'LOGIN_PASSWORD' )) {
+			$result = '游客';
 		} else {
 			$data = $this->field ( 'Password,RealName' )->where ( 'Email=\'%s\'', $username )->find ();
 			if ($data) {

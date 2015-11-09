@@ -15,7 +15,11 @@ class UserAgentBehavior {
 			$str = 'http://news.gdut.edu.cn/';
 			if (isset ( $url [1] )) {
 				if (strcmp ( $url [1], 'Login' ) == 0) {
-					$str .= 'UserLogin.aspx';
+					if (isset ( $url [2] ) && strcmp ( $url [2], 'lost' ) == 0) {
+						$str .= 'FindPassword.aspx';
+					} else {
+						$str .= 'UserLogin.aspx';
+					}
 				} else if (strcmp ( $url [1], 'List' ) == 0 && isset ( $url [3] )) {
 					$str .= 'ArticleList.aspx?category=' . $url [3];
 					if (isset ( $url [4] )) {
