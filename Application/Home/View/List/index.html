@@ -1,45 +1,42 @@
-<include file="Public/header"/>
-<include file="Public/nav"/>
-<div class="container">
-<ol class="breadcrumb visible-xs">
-  <li><a href="__APP__">主页</a></li>
-  <li class="active">{$category_name}</li>
+<include file="Public/header" />
+<include file="Public/nav" />
+<ol class="breadcrumb">
+	<li><a href="__APP__">主页</a></li>
+	<li class="active">{$category_name}</li>
 </ol>
-<div id="content" class="container">
-    <if condition="empty($data)">
-        <div class="alert alert-danger">没有找到文章</div>
-        <else/>
-        <foreach name="data" item="info">
-            <h4>{$key}</h4>
-            <div class="list-group">
-                <foreach name="info" item="val">
-                    <a href="__APP__/Article/index/{$val.id}" class="list-group-item" target="_blank">
-                        <h4 class="list-group-item-heading">{$val.t}</h4>
-                        <p class="list-group-item-text">&nbsp;[{$val.d}]</p>
-                    </a>
-                </foreach>
-            </div>
-        </foreach>
-    </if>
-
-</div>
-<div id="more" class="btn btn-default btn-block" onclick="next()">更多...</div>
+<div class="container-fluid"
+	style="padding-left: 0px; padding-right: 0px">
+	<if condition="count($data)==0">
+	<div class="alert alert-danger" role="alert">没有找到文章</div>
+	<else />
+	<div id="content" class="list-group">
+		<foreach name="data" item="val"> <a
+			href="__APP__/Article/index/{$val.articleid}" class="list-group-item"
+			target="_blank">
+			<h5 class="list-group-item-heading">{$val.title}</h5>
+			<p class="list-group-item-text" style="font-size: 12px;">&nbsp;[{$val.departmentname}]&nbsp;[{$val.publishdate}&nbsp;{$val.weekday}]</p>
+		</a> </foreach>
+	</div>
+	<if condition="count($data)==30">
+	<button id="more" class="btn btn-default btn-block" onclick="next()"
+		style="margin-bottom: 20px;">更多...</button>
+	</if> </if>
 </div>
 <script>
     var page=1,c1={$category},c2={$category2},str,loading=false;
-    function next(){
-        loading=true;
-        $.getJSON('__APP__/List/page/'+c1+'/'+c2+'/'+(++page),function(a){
-            $.each(a,function(i,v1){
-                str='<h4>'+i+'</h4><div class="list-group">';
-                $.each(v1,function(j,v2){
-                    str+='<a href="__APP__/Article/index/'+v2.id+'" class="list-group-item" target="_blank"><h4 class="list-group-item-heading">'+v2.t+'</h4><p class="list-group-item-text">&nbsp;['+v2.d+']</p></a>';
-                });
-                $('#content').append(str,'</div>');
-            });
-            loading=false;
-        });
-    }
+	function next(){
+		loading=true;
+		$.getJSON('__APP__/List/page/'+c1+'/'+c2+'/'+(++page),function(a){
+			if(a.length){
+				$.each(a,function(i,v){
+					$('#content').append('<a href="__APP__/Article/index/'+v.articleid+'" class="list-group-item" target="_blank"><h5 class="list-group-item-heading">'+v.title+'</h5><p class="list-group-item-text" style="font-size: 12px;">&nbsp;['+v.departmentname+']&nbsp;['+v.publishdate+'&nbsp;'+v.weekday+']</p></a>');
+				});
+			}else{
+				$('#more').hide();
+			}
+			loading=false;
+		});
+	}
 </script>
-<include file="Public/back"/>
-<include file="Public/footer"/>
+<include file="Public/back" />
+<include file="Public/footer" />

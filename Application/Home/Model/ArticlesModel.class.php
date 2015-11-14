@@ -64,16 +64,7 @@ class ArticlesModel extends Model {
 					'eq',
 					intval ( $catefory2 ) 
 			);
-		$data = $this->field ( 'ArticleID,Title,CONVERT(varchar(10),PublishDate,111) AS PublishDate,DATENAME(WEEKDAY,PublishDate) AS WeekDay,DepartmentName' )->join ( 'Department ON Articles.DepartmentID=Department.DepartmentID' )->where ( $where )->page ( $page, C ( 'LIST_LEN' ) )->order ( 'PublishDate DESC' )->select ();
-		$result = array ();
-		foreach ( $data as &$val ) {
-			$result [$val ['publishdate'] . ' ' . $val ['weekday']] [] = array (
-					'id' => $val ['articleid'],
-					't' => $val ['title'],
-					'd' => $val ['departmentname'] 
-			);
-		}
-		return $result;
+		return $this->field ( 'ArticleID,Title,CONVERT(varchar(10),PublishDate,111) AS PublishDate,DATENAME(WEEKDAY,PublishDate) AS WeekDay,DepartmentName' )->join ( 'Department ON Articles.DepartmentID=Department.DepartmentID' )->where ( $where )->order ( 'PublishDate DESC' )->page ( $page, C ( 'LIST_LEN' ) )->select ();
 	}
 	
 	/**
