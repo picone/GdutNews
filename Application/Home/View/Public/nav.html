@@ -3,14 +3,13 @@
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed"
-					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-					aria-controls="navbar">
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false">
 					<span class="sr-only">导航栏</span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span> <span class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="__APP__">新闻通知网</a>
 			</div>
-			<div id="navbar" class="navbar-collapse collapse">
+			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
 					<li id="mainLi"><a href="__APP__"> <span
 							class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;主页
@@ -21,7 +20,7 @@
 							class="glyphicon glyphicon-th-list" aria-hidden="true"></span>&nbsp;校内通知<span
 							class="caret"></span>
 					</a>
-						<ul class="dropdown-menu" role="menu">
+						<ul class="dropdown-menu">
 							<li><a href="__APP__/List/index/4"> <span
 									class="glyphicon glyphicon-link" aria-hidden="true"></span>&nbsp;全部通知
 							</a></li>
@@ -86,19 +85,19 @@
 	</nav>
 	<div class="modal" id="info"></div>
 	<script>
-		<if condition="CONTROLLER_NAME=='Index'">
+		<if condition="CONTROLLER_NAME == 'Index'">
 		$("#mainLi").addClass("active");
 		</if>
-		<if condition="CONTROLLER_NAME== 'List' && $category==4">
+		<if condition="CONTROLLER_NAME == 'List' && $category == 4">
 		$("#schoolNoticeLi").addClass("active");
 		</if>
-		<if condition="CONTROLLER_NAME=='List' && $category==5">
+		<if condition="CONTROLLER_NAME == 'List' && $category == 5">
 		$("#schoolAnnouncementLi").addClass("active");
 		</if>
-		<if condition="CONTROLLER_NAME== 'List' && $category==6">
+		<if condition="CONTROLLER_NAME == 'List' && $category == 6">
 		$("#schoolNewsLetterLi").addClass("active");
 		</if>
-		<if condition="CONTROLLER_NAME=='List' && $category==8">
+		<if condition="CONTROLLER_NAME == 'List' && $category == 8">
 		$("#schoolBiddingLi").addClass("active");
 		</if>
 		$("a[href=#info]").click(function() {
