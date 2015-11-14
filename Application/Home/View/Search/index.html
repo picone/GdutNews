@@ -1,79 +1,79 @@
-<html>
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
+<meta charset="utf-8">
 </head>
 <body>
-<div class="modal-content modal-dialog">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">内容检索</h4>
-    </div>
-    <form role="form" method="post" action="__APP__/Search/search" accept-charset="UTF-8">
-        <div class="modal-body">
-            <div class="form-group">
-                <label for="keyword">关键字：</label>
-                <input type="text" class="form-control" id="keyword" name="keyword" placeholder="请输入关键字" required="required"/>
-            </div>
-            <div id="kx" style="display: none">
-            <div class="form-group">
-                <label for="type">搜索类型：</label>
-                <div class="form-group">
-                    <select class="form-control" id="type" name="type">
-                        <option value="0">文章标题</option>
-                        <option value="1">文章内容</option>
-                        <option value="2">全文搜索</option>
-                    </select>
-                </div>
-            </div>
-        	</div>
-            <div class="form-group">
-                <label for="department">文章所属部门：</label>
-                <div class="form-group">
-                    <select class="form-control" id="department" name="department">
-                        <option value="0">所有部门</option>
-                        <foreach name="department" item="val">
-                            <option value="{$val.departmentid}">{$val.departmentname}</option>
-                        </foreach>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="category">文章所属分类：</label>
-                <div class="form-group">
-                    <select class="form-control" id="category" name="category">
-                        <option value="0">所有分类</option>
-                        <foreach name="category" item="val">
-                            <option value="{$val.categoryid}">{$val.categoryname}</option>
-                        </foreach>
-                    </select>
-                </div>
-            </div>
-            <div id="kx1" style="display: none">
-            <div class="form-group">
-                <label for="date_from">开始日期（YYYY/MM/DD）：</label>
-                <input type="date" class="form-control" id="date_from" name="date_from"/>
-            </div>
-            <div class="form-group">
-                <label for="date_to">结束日期（YYYY/MM/DD）：</label>
-                <input type="date" class="form-control" id="date_to" name="date_to"/>
-            </div>
-        </div>
-        </div>
-        <div class="modal-footer">
-            <input class="btn btn-default" type="button" value="高级搜索" onclick="more()">
-            <script>
-            function more(){
-            	$("div#kx").toggle();
-            	$("div#kx1").toggle();
-            	document.getElementById("type").value = 0;
-            	document.getElementById("date_from").value = "";
-            	document.getElementById("date_to").value = "";
-            }
-            </script>
-            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-            <button type="submit" class="btn btn-primary">搜索</button>
-        </div>
-    </form>
-</div>
+	<div class="modal-dialog modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"
+				aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			<h4 class="modal-title">内容检索</h4>
+		</div>
+		<form role="form" method="post" action="__APP__/Search/search"
+			accept-charset="UTF-8">
+			<div class="modal-body">
+				<div class="form-group">
+					<label for="keyword">关键字：</label> <input type="text" id="keyword"
+						name="keyword" class="form-control" placeholder="请输入关键字"
+						required="required" />
+				</div>
+				<div id="kx" style="display: none">
+					<div class="form-group">
+						<label for="type">搜索类型：</label> <select class="form-control"
+							id="type" name="type">
+							<option value="0">文章标题</option>
+							<option value="1">文章内容</option>
+							<option value="2">全文搜索</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="department">文章所属部门：</label> <select
+						class="form-control" id="department" name="department">
+						<option value="0">所有部门</option>
+						<foreach name="department" item="val">
+						<option value="{$val.departmentid}">{$val.departmentname}</option>
+						</foreach>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="category">文章所属分类：</label> <select class="form-control"
+						id="category" name="category">
+						<option value="0">所有分类</option>
+						<foreach name="category" item="val">
+						<option value="{$val.categoryid}">{$val.categoryname}</option>
+						</foreach>
+					</select>
+				</div>
+				<div id="kx1" style="display: none">
+					<div class="form-group">
+						<label for="date_from">开始日期（YYYY/MM/DD）：</label> <input
+							type="date" id="date_from" name="date_from" class="form-control" />
+					</div>
+					<div class="form-group">
+						<label for="date_to">结束日期（YYYY/MM/DD）：</label> <input type="date"
+							id="date_to" name="date_to" class="form-control" />
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" onclick="more()"
+					style="margin-right: 5px;">高级搜索</button>
+				<script>
+					function more() {
+						$("div#kx").toggle();
+						$("div#kx1").toggle();
+						document.getElementById("type").value = 0;
+						document.getElementById("date_from").value = "";
+						document.getElementById("date_to").value = "";
+					}
+				</script>
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				<button type="submit" class="btn btn-primary">搜索</button>
+			</div>
+		</form>
+	</div>
 </body>
 </html>
