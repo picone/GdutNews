@@ -65,6 +65,8 @@ class LoginController extends Controller {
 			curl_setopt ( $ch, CURLOPT_COOKIE, 'ASP.NET_SessionId=' . session ( 'session_id' ) );
 			curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, 1 );
 			$page = curl_exec ( $ch );
+			$this->assign ( 'email', I ( 'post.email/s', '' ) );
+			$this->assign ( 'name', I ( 'post.name/s' ) );
 			$this->assign ( 'output', $this->_substr ( $page, 'alert("', '"' ) );
 			$this->display ( 'lost' );
 			curl_close ( $ch );

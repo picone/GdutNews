@@ -1,34 +1,43 @@
-<include file="Public/header"/>
+<include file="Public/header" />
 <body>
-<div class="container">
-    <h1 align="center">广东工业大学</h1>
-    <h2 align="center">新闻通知网</h2>
-    <div class="panel panel-default col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4">
-        <div class="panel-body">
-            <form method="POST" action="__APP__/Login/post">
-                <div class="form-group">
-                    <label for="email"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;邮箱地址</label>
-                    <input type="text" id="email" name="email" class="form-control" placeholder="邮箱地址" maxlength="40" required>
-                </div>
-                <div class="form-group">
-                    <label for="name"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span>&nbsp;姓名</label>
-                    <input type="text" id="name" name="name" value="{$name}" class="form-control" placeholder="姓名" maxlength="10" required>
-                </div>
-                <div class="form-group">
-                    <label for="vcode"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span>&nbsp;验证码</label>
-                    <input type="text" id="vcode" name="vcode" class="form-control" placeholder="验证码" maxlength="4" required><img src="__APP__/Login/vcode" onclick="this.src=this.src+'?'+Match.random()">
-                </div>
-                <present name="output">
-                    <div class="alert alert-danger">{$output}</div>
-                </present>
-                <div class="form-group">
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">找回密码</button>
-                </div>
-            </form>
-            <div style="text-align:center;">
-                <a href="__APP__/Login">返回首页</a>
-            </div>
-        </div>
-    </div>
-</div>
-<include file="Public/footer"/>
+	<div class="container-fluid">
+		<h1 align="center">广东工业大学</h1>
+		<h2 align="center">新闻通知网</h2>
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<form method="POST" action="__APP__/Login/post">
+					<div class="form-group">
+						<label for="email"><span
+							class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;邮箱地址</label>
+						<input type="text" id="email" name="email" value="{$email}"
+							class="form-control" placeholder="邮箱" maxlength="40"
+							required="required">
+					</div>
+					<div class="form-group">
+						<label for="name"><span class="glyphicon glyphicon-user"
+							aria-hidden="true"></span>&nbsp;用户姓名</label> <input type="text" id="name"
+							name="name" value="{$name}" class="form-control" placeholder="姓名"
+							maxlength="30" required="required">
+					</div>
+					<div class="form-group">
+						<label for="vcode"><span class="glyphicon glyphicon-lock"
+							aria-hidden="true"></span>&nbsp;验证码</label>
+						<div class="input-group">
+							<input type="text" id="vcode" name="vcode" class="form-control"
+								placeholder="验证码" maxlength="4" required="required"><span
+								class="input-group-addon"><img src="__APP__/Login/vcode"
+								onclick="this.src=this.src+'?'+Math.random()"></span>
+						</div>
+					</div>
+					<present name="output">
+					<div class="alert alert-danger" role="alert">{$output}</div>
+					</present>
+					<button class="btn btn-lg btn-primary btn-block" type="submit">取回密码</button>
+				</form>
+				<p align="center">
+					<a href="__APP__/Login">返回登录</a>&nbsp;|&nbsp;<a href="__APP__">返回首页</a>
+				</p>
+			</div>
+		</div>
+	</div>
+	<include file="Public/footer" />
