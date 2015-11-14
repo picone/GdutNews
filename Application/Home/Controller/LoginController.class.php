@@ -35,13 +35,12 @@ class LoginController extends Controller {
 		curl_setopt ( $ch, CURLOPT_HEADER, 1 );
 		$page = curl_exec ( $ch );
 		session ( 'state', $this->_substr ( $page, 'id="__VIEWSTATE" value="', '"' ) );
-		session ( 'validation', $this->_substr ( $page, '__EVENTVALIDATION" value="', '"' ) );
+		session ( 'validation', $this->_substr ( $page, 'id="__EVENTVALIDATION" value="', '"' ) );
 		session ( 'session_id', $this->_substr ( $page, 'ASP.NET_SessionId=', ';' ) );
 		$this->display ();
 		curl_close ( $ch );
 	}
 	public function vcode() {
-		ob_clean ();
 		header ( 'Content-Type:image/Jpeg;' );
 		$ch = curl_init ( 'http://news.gdut.edu.cn/ValidateCode.aspx' );
 		curl_setopt ( $ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Linux; U; Android 4.4.2; en-us;)' );
