@@ -28,7 +28,7 @@ class ArticlesModel extends Model {
 	 * @return array 文章详细内容
 	 */
 	public function getPassage($id = 0) {
-		return $this->field ( 'Title,Content,CategoryID,CategoryID2' )->where ( 'ArticleID=%d', $id )->find ();
+		return $this->field ( 'Title,DepartmentName,Content,CategoryID,CategoryID2' )->where ( 'ArticleID=%d', $id )->join ( 'Department ON Articles.DepartmentID=Department.DepartmentID' )->find ();
 	}
 	
 	/**
@@ -43,7 +43,7 @@ class ArticlesModel extends Model {
 		if ($id > 0) {
 			$model = $model->where ( 'CategoryID=%d', $id );
 		}
-		return $model->field ( 'ArticleID,Title,CONVERT(varchar(10),PublishDate,111) AS PublishDate,DATENAME(WEEKDAY,PublishDate) AS WeekDay,DepartmentName' )->join ( 'Department ON Articles.DepartmentID=Department.DepartmentID' )->order ( 'PublishDate DESC' )->page ( $page, C ( 'LIST_LEN' ) )->select ();
+		return $model->field ( 'ArticleID,Title,CONVERT(varchar(10),PublishDate,111) AS PublishDate,DATENAME(WEEKDAY,PublishDate) AS WeekDay,DepartmentName' )->join ( 'Department ON Articles.DepartmentID=Department.DepartmentID' )->order ( 'PublishDate DESC,ArticleID DESC' )->page ( $page, C ( 'LIST_LEN' ) )->select ();
 	}
 	
 	/**
@@ -64,7 +64,7 @@ class ArticlesModel extends Model {
 					'eq',
 					intval ( $catefory2 ) 
 			);
-		return $this->field ( 'ArticleID,Title,CONVERT(varchar(10),PublishDate,111) AS PublishDate,DATENAME(WEEKDAY,PublishDate) AS WeekDay,DepartmentName' )->join ( 'Department ON Articles.DepartmentID=Department.DepartmentID' )->where ( $where )->order ( 'PublishDate DESC' )->page ( $page, C ( 'LIST_LEN' ) )->select ();
+		return $this->field ( 'ArticleID,Title,CONVERT(varchar(10),PublishDate,111) AS PublishDate,DATENAME(WEEKDAY,PublishDate) AS WeekDay,DepartmentName' )->join ( 'Department ON Articles.DepartmentID=Department.DepartmentID' )->where ( $where )->order ( 'PublishDate DESC,ArticleID DESC' )->page ( $page, C ( 'LIST_LEN' ) )->select ();
 	}
 	
 	/**
@@ -126,7 +126,7 @@ class ArticlesModel extends Model {
 					'lt',
 					$date_to 
 			);
-		return $this->field ( 'ArticleID,Title,CONVERT(varchar(10),PublishDate,111) AS PublishDate,DATENAME(WEEKDAY,PublishDate) AS WeekDay,DepartmentName' )->where ( $where )->join ( 'Department ON Articles.DepartmentID=Department.DepartmentID' )->order ( 'PublishDate DESC' )->page ( $page, C ( 'LIST_LEN' ) )->select ();
+		return $this->field ( 'ArticleID,Title,CONVERT(varchar(10),PublishDate,111) AS PublishDate,DATENAME(WEEKDAY,PublishDate) AS WeekDay,DepartmentName' )->where ( $where )->join ( 'Department ON Articles.DepartmentID=Department.DepartmentID' )->order ( 'PublishDate DESC,ArticleID DESC' )->page ( $page, C ( 'LIST_LEN' ) )->select ();
 	}
 	
 	/**
@@ -145,6 +145,6 @@ class ArticlesModel extends Model {
 					'eq',
 					intval ( $category ) 
 			);
-		return $this->field ( 'ArticleID,Title,CONVERT(varchar(10),PublishDate,111) AS PublishDate,DATENAME(WEEKDAY,PublishDate) AS WeekDay,DepartmentName' )->where ( $where )->join ( 'Department ON Articles.DepartmentID=Department.DepartmentID' )->order ( 'ViewCount DESC,PublishDate DESC' )->limit ( C ( 'LIST_LEN' ) )->select ();
+		return $this->field ( 'ArticleID,Title,CONVERT(varchar(10),PublishDate,111) AS PublishDate,DATENAME(WEEKDAY,PublishDate) AS WeekDay,DepartmentName' )->where ( $where )->join ( 'Department ON Articles.DepartmentID=Department.DepartmentID' )->order ( 'ViewCount DESC,PublishDate DESC,ArticleID DESC' )->limit ( C ( 'LIST_LEN' ) )->select ();
 	}
 }

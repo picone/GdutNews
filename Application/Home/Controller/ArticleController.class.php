@@ -9,6 +9,7 @@ class ArticleController extends Controller {
 		$data = D ( 'Articles' )->getPassage ( $id );
 		$category = D ( 'Categories' )->getCategory ();
 		$this->assign ( 'title', $data ['title'] );
+		$this->assign ( 'department', $data ['departmentname'] );
 		$this->assign ( 'category', $data ['categoryid'] );
 		$this->assign ( 'category2', $data ['categoryid2'] );
 		$this->assign ( 'content', $this->formatData ( $data ['content'] ) );
