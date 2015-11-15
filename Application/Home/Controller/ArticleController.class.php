@@ -19,7 +19,7 @@ class ArticleController extends Controller {
 	private function formatData($content) {
 		if ($content != null) {
 			// 为表格添加响应式表格样式
-			$content = str_replace ( '<table', '<div class="table-responsive"><table class="table table-bordered table-hover"', $content );
+			$content = str_replace ( '<table', '<div class="table-responsive"><table class="table table-striped table-bordered table-hover"', $content );
 			$content = str_replace ( '</table>', '</table></div>', $content );
 			// 为图片添加超级链接在新窗口打开,并添加响应式图片样式
 			$content = preg_replace ( '/<img.*?src="(.*?)".*?>/', '<a href="${1}" target="_blank"><img src="${1}" alt="图片" class="img-responsive"/></a>', $content );
