@@ -41,6 +41,7 @@ class LoginController extends Controller {
 		curl_close ( $ch );
 	}
 	public function vcode() {
+		ob_clean ();
 		header ( 'Content-Type:image/Jpeg;' );
 		$ch = curl_init ( 'http://news.gdut.edu.cn/ValidateCode.aspx' );
 		curl_setopt ( $ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Linux; U; Android 4.4.2; en-us;)' );
