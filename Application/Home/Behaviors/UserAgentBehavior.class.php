@@ -27,7 +27,11 @@ class UserAgentBehavior {
 					}
 				} else if (strcmp ( $url [1], 'Article' ) == 0 && isset ( $url [3] )) {
 					$str .= 'viewarticle.aspx?articleid=' . $url [3];
+				} else {
+					$str .= 'default.aspx';
 				}
+			} else {
+				$str .= 'default.aspx';
 			}
 			redirect ( $str );
 		}
