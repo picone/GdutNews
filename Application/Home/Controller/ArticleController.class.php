@@ -23,6 +23,8 @@ class ArticleController extends Controller {
 			$content = str_replace ( '</table>', '</table></div>', $content );
 			// 为图片添加超级链接在新窗口打开,并添加响应式图片样式
 			$content = preg_replace ( '/<img.*?src="(.*?)".*?>/', '<a href="${1}" target="_blank"><img src="${1}" alt="图片" class="img-responsive"/></a>', $content );
+            $content=preg_replace('/(&nbsp;){9,}/','',$content);
+            $content=preg_replace('/[ ]{9,}/','',$content);
 		}
 		return $content;
 	}
