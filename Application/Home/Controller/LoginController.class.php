@@ -7,7 +7,6 @@ use Think\Controller;
 class LoginController extends Controller {
 	public function index() {
 		cookie ( 'auth', null );
-		session ( null );
 		$this->display ();
 	}
 	public function login() {
@@ -18,7 +17,8 @@ class LoginController extends Controller {
 						I ( 'post.un/s' ),
 						I ( 'post.passwd/s' ) 
 				) ), 'ENCODE' ), I ( 'post.remember/d', 0 ) == 0 ? 0 : 2592000 );
-				redirect ( __APP__ . '/' . $GLOBALS ['url'] );
+				redirect ( __APP__ . '/' . session ( 'url' ) );
+				session ( 'url', null );
 			} else {
 				$this->assign ( 'un', I ( 'post.un/s' ) );
 				$this->assign ( 'output', '账号或密码错误!' );

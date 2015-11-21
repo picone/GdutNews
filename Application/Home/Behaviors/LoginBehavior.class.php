@@ -9,7 +9,7 @@ class LoginBehavior {
 			if ($auth == '') {
 				$ip = get_client_ip ();
 				if (! isLan ( $ip )) {
-					$GLOBALS ['url'] = $_SERVER ['PATH_INFO'];
+					session ( 'url', $_SERVER ['PATH_INFO'] );
 					redirect ( __APP__ . '/Login' );
 				} else {
 					$GLOBALS ['username'] = '游客';
@@ -18,7 +18,7 @@ class LoginBehavior {
 				list ( $username, $password ) = explode ( '\t', $auth );
 				$GLOBALS ['username'] = D ( 'User' )->login ( $username, $password );
 				if (! $GLOBALS ['username']) {
-					$GLOBALS ['url'] = $_SERVER ['PATH_INFO'];
+					session ( 'url', $_SERVER ['PATH_INFO'] );
 					redirect ( __APP__ . '/Login' );
 				}
 			}

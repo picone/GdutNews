@@ -22,14 +22,16 @@ class ArticleController extends Controller {
 			$content = preg_replace ( '/\<table/', '<div class="table-responsive"><table class="table table-striped table-bordered table-hover"', $content );
 			$content = preg_replace ( '/\<\/table\>/', '</table></div>', $content );
 			// 为图片添加超级链接在新窗口打开,并添加响应式图片样式
-			$content = preg_replace ( '/\<img.*?src=\"(.*?)\".*?\>/', '<a href="${1}" target="_blank"><img src="${1}" alt="图片" class="img-responsive"/></a>', $content );
+			$content = preg_replace ( '/\<img.*?src=\"(.*?)\".*?\>/', '<a href="${1}" target="_blank"><img class="img-responsive" src="${1}" alt="图片"/></a>', $content );
 			// 替换空格
-			$content = preg_replace ( '/[ ]{2,}/', '&nbsp;', $content );
+			$content = preg_replace ( '/[ ]{2,}/', '&nbsp;&nbsp;', $content );
 			// 删除大于8个的空格
-			$content = preg_replace ( '/(&nbsp;){9,}/', '', $content );
+			$content = preg_replace ( '/(?<=&nbsp;)[ ]*/', '', $content );
+			$content = preg_replace ( '/[ ]*(?=&nbsp;)/', '', $content );
+			$content = preg_replace ( '/(&nbsp;){9,}/', '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;', $content );
 			// 删除自定义字体大小
 			$content = preg_replace ( '/font\-size\:[ ]*\d+(px|em|pt|ex|pc|in|mm|cm)/', '', $content );
-			$content = preg_replace ( '/size\=\"\d+\"(?=.*?\>)/', '', $content );
+			$content = preg_replace ( '/\<font(.*?)size\=\"\d+\"(.*?)\>/', '<font${1}${2}>', $content );
 		}
 		return $content;
 	}
